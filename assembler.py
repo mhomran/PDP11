@@ -12,27 +12,28 @@
 import re
 
 class Line:
-  def init(self, mneum="", no_op=0, srcCode=-1, dstCode=-1, index=-1, valueS=0, valueD=0, vSrc=0, vDst=0):
+  def __init__(self, mneum="", no_op=0, srcCode=-1, dstCode=-1, index=-1, valueS=0, valueD=0, vSrc=0, vDst=0):
     self.mneum = mneum
     self.no_op = no_op
+    self.srcCode = srcCode
     self.dstCode = dstCode
     self.index = index
-    self.srcCode = srcCode
     self.vSrc = vSrc
     self.vDst = vDst
-
+    self.valueS = valueS
+    self.valueD = valueD
 
 def check(op, variables):
   indir = 0
-  code = 0
+  code = -1
   vbool = 0
   t = 0
   value = -1
-  n = len(op)
   if op[0] == '@':
     indir = 1
     op = op[1:]
 
+  n = len(op)
   match = re.compile('R([0-7])')
   l = match.findall(op)
   if len(l) == 1 and n == 2:
@@ -74,11 +75,12 @@ def check(op, variables):
         exit(1)
     vbool = 1
 
-  if op in variables:
+  if code == -1:
     vbool = 2
     code = 7
     indir = 0
     t = 3
+    value = op
 
   bstring = "{0:{fill}2b}".format(t, fill='0') + "{0:{fill}1b}".format(indir, fill='0') + "{0:{fill}3b}".format(code, fill='0')
   return (bstring, vbool, value)
@@ -110,7 +112,7 @@ def AV_assemble(filename):
   # open input file
   file = open(filename, 'r', encoding='utf-8')
 
-  # output = open('output.txt', 'wb', encoding='utf-8')
+  output = open('output.txt', 'w', encoding='utf-8')
 
   # read the code from the file
   code = file.read()
@@ -139,14 +141,14 @@ def AV_assemble(filename):
     labelI = lines[i].find(':')
     if labelI != -1:
       labels[lines[i][:labelI]] = index
-      new_lines.append(lines[i])  
       continue
 
     
     lineOb = Line()
     lines[i] = lines[i].split()
     lines[i][0] = lines[i][0].lower()
-    
+    lineOb.index = index
+
     # if variable save it and continue
     if lines[i][0] == 'define':
       #variable
@@ -156,13 +158,15 @@ def AV_assemble(filename):
 
     
     if lines[i][0] in opCode2:
+      lineOb.mneum = opCode2[lines[i][0]]
+      
       # two operands
+      lineOb.no_op = 2
       if len(lines[i]) == 2:
         ops = lines[i][1].split(',')
         if len(ops) == 2:          
-          lineOb.srcCode, lineOb.vbool, lineOb.value = check(ops[0], variables)
-          lineOb.dstCode, lineOb.vbool, lineOb.value = check(ops[1], variables)
-
+          lineOb.srcCode, lineOb.vSrc, lineOb.valueS = check(ops[0], variables)
+          lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(ops[1], variables)
         else:
           print('error on this line: ', lines[i])
           exit(1)
@@ -170,8 +174,8 @@ def AV_assemble(filename):
       elif len(lines[i]) == 3:
         if lines[i][1][-1] == ',':
           lines[i][1] = lines[i][1][:-1]
-          lineOb.srcCode, lineOb.vbool, lineOb.value = check(lines[i][1], variables)
-          lineOb.dstCode, lineOb.vbool, lineOb.value = check(lines[i][2], variables)
+          lineOb.srcCode, lineOb.vSrc, lineOb.valueS = check(lines[i][1], variables)
+          lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(lines[i][2], variables)
           
         else:
           print('error on this line: ', lines[i])
@@ -179,8 +183,8 @@ def AV_assemble(filename):
       
       elif len(lines[i]) == 4:
         if lines[i][2] == ',':
-          lineOb.srcCode, lineOb.vbool, lineOb.value = check(lines[i][1], variables)
-          lineOb.dstCode, lineOb.vbool, lineOb.value = check(lines[i][3], variables)
+          lineOb.srcCode, lineOb.vSrc, lineOb.valueS = check(lines[i][1], variables)
+          lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(lines[i][3], variables)
           
         else:
           print('error on this line: ', lines[i])
@@ -189,39 +193,85 @@ def AV_assemble(filename):
         print('error on this line: ', lines[i])
         exit(1)
 
+      if lineOb.vSrc != 0:
+        index += 1
+      if lineOb.vDst != 0:
+        index += 1
     elif lines[i][0] in opCode1:
+      lineOb.no_op = 1
+      lineOb.mneum = opCode1[lines[i][0]]
       # one operand
       if len(lines[i]) == 2:
-        lineOb.dstCode, lineOb.vbool, lineOb.value = check(lines[i][1], variables)
+        lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(lines[i][1], variables)
         
       else:
         print('error on this line: ', lines[i])
         exit(1)
+      if lineOb.vDst != 0:
+        index += 1
 
     elif lines[i][0] in opCodeB:
+      lineOb.no_op = 1
+      lineOb.mneum = opCodeB[lines[i][0]]
       # branch
       if len(lines[i]) == 2:
-        print(lines[i][1])
+        lineOb.valueD = lines[i][1]
       else:
         print('error on this line: ', lines[i])
         exit(1)
 
 
     else:
+      lineOb.mneum = opCodenop[lines[i][0]]
+      lineOb.no_op = 0
       # nop
-      if len(lines[i]) == 1:
-        print(lines[i][0])
-      else:
+      if len(lines[i]) != 1:
         print('error on this line: ', lines[i])
         exit(1)
     
     new_lines.append(lineOb)
+    index += 1
 
-  for i in new_lines:
-    if type(i) == Line:
-      print(i.srcCode, i.dstCode)
+  # final round -> you either win or die
+  for line in new_lines:
+    if line.no_op == 0:
+      line.mneum = line.mneum + '0000000000'
+      print(line.mneum, file=output)
+      continue
+    elif line.no_op == 1:
+      if len(line.mneum) == 4:
+        line.mneum = '100100' + line.mneum
+        print(line.mneum+ line.dstCode, file=output)
+        if line.vDst == 1:
+          print(line.valueD, file=output)
+        elif line.vDst == 2:
+          print(int(variables[line.valueD])-line.index+1, file=output)
+          continue
+      else:
+        line.mneum = '10100' + line.mneum
+        offset = int(labels[line.valueD]) - line.index-1
+        print(line.mneum + "{0:{fill}8b}".format((offset + 2**8) % 2**8, fill='0'), file=output)
+        continue
     
+    if line.no_op == 2:
+      one = None
+      two = None
+      print(line.mneum + str(line.srcCode) + str(line.dstCode), file=output)
+      if line.vSrc == 1:
+        one = line.valueS
+      elif line.vSrc == 2:
+        one = int(variables[line.valueS]) - line.index - 1
+      if line.vDst == 1:
+        two = line.valueD
+      elif line.vDst == 2:
+        two = int(variables[line.valueD]) - line.index - 1
+        if one is not None:
+          two -= 1
     
+      if one is not None:
+        print("{0:{fill}16b}".format((one + 2**16) % 2**16, fill='0'), file=output)
+      if two is not None:
+        print("{0:{fill}16b}".format((two + 2**16) % 2**16, fill='0'), file=output)
   
   
     
