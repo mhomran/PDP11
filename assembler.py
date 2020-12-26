@@ -9,18 +9,79 @@
 # 1 for 1 operand
 # 0 for nop
 
+import re
 
 class Line:
-  def init(self, mneum="", no_op=0, srcIndir=-1, srcCode=-1, dstIndir=-1, dstCode=-1, index=-1):
+  def init(self, mneum="", no_op=0, srcCode=-1, dstCode=-1, index=-1, valueS=0, valueD=0, vSrc=0, vDst=0):
     self.mneum = mneum
     self.no_op = no_op
-    self.dstIndir = dstIndir
     self.dstCode = dstCode
     self.index = index
-    if no_op == 2:
-      # two operands
-      self.srcIndir = srcIndir
-      self.srcCode = srcCode
+    self.srcCode = srcCode
+    self.vSrc = vSrc
+    self.vDst = vDst
+
+
+def check(op, variables):
+  indir = 0
+  code = 0
+  vbool = 0
+  t = 0
+  value = -1
+  n = len(op)
+  if op[0] == '@':
+    indir = 1
+    op = op[1:]
+
+  match = re.compile('R([0-7])')
+  l = match.findall(op)
+  if len(l) == 1 and n == 2:
+    # register
+    code = int(l[0])
+    t = 0
+
+  match = re.compile('\-\(R([0-7])\)')
+  l = match.findall(op)
+  if len(l) == 1:
+    # auto decrement
+    code = int(l[0])
+    t = 2
+
+  match = re.compile('\(R([0-7])\)\+')
+  l = match.findall(op)
+  if len(l) == 1:
+    # auto increment
+    code = int(l[0])
+    t = 1
+
+  match = re.compile('([0-9]+)\(R([0-7])\)')
+  l = match.findall(op)
+  if len(l) == 1:
+    # indexed
+    code = int(l[0][1])
+    value = l[0][0]
+    vbool = 1
+    t = 3
+
+  if op[0] == '#':
+    code = 7
+    indir = 0
+    t = 1
+
+    value = int(op[1:])
+    if value > 32767 or value < -32768:
+        print('nfs el 7aga ely fo2')
+        exit(1)
+    vbool = 1
+
+  if op in variables:
+    vbool = 2
+    code = 7
+    indir = 0
+    t = 3
+
+  bstring = "{0:{fill}2b}".format(t, fill='0') + "{0:{fill}1b}".format(indir, fill='0') + "{0:{fill}3b}".format(code, fill='0')
+  return (bstring, vbool, value)
 
 
 opCode2 = {
@@ -81,14 +142,12 @@ def AV_assemble(filename):
       new_lines.append(lines[i])  
       continue
 
-    # if variable save it and continue
-    if i == 29:
-      print('lol')
+    
     lineOb = Line()
     lines[i] = lines[i].split()
     lines[i][0] = lines[i][0].lower()
     
-    
+    # if variable save it and continue
     if lines[i][0] == 'define':
       #variable
       variables[lines[i][1]] = index
@@ -100,10 +159,10 @@ def AV_assemble(filename):
       # two operands
       if len(lines[i]) == 2:
         ops = lines[i][1].split(',')
-        if len(ops) == 2:
-          print(ops[0], ops[1])
-          # ops[0] first
-          # ops[1] second
+        if len(ops) == 2:          
+          lineOb.srcCode, lineOb.vbool, lineOb.value = check(ops[0], variables)
+          lineOb.dstCode, lineOb.vbool, lineOb.value = check(ops[1], variables)
+
         else:
           print('error on this line: ', lines[i])
           exit(1)
@@ -111,18 +170,18 @@ def AV_assemble(filename):
       elif len(lines[i]) == 3:
         if lines[i][1][-1] == ',':
           lines[i][1] = lines[i][1][:-1]
-          # lines[i][1] first op
-          # lines[i][2] second op
-          print(lines[i][1], lines[i][2])
+          lineOb.srcCode, lineOb.vbool, lineOb.value = check(lines[i][1], variables)
+          lineOb.dstCode, lineOb.vbool, lineOb.value = check(lines[i][2], variables)
+          
         else:
           print('error on this line: ', lines[i])
           exit(1)
       
       elif len(lines[i]) == 4:
         if lines[i][2] == ',':
-          print(lines[i][1], lines[i][3])
-          # lines[i][1] first op
-          # lines[i][3] second op
+          lineOb.srcCode, lineOb.vbool, lineOb.value = check(lines[i][1], variables)
+          lineOb.dstCode, lineOb.vbool, lineOb.value = check(lines[i][3], variables)
+          
         else:
           print('error on this line: ', lines[i])
           exit(1)
@@ -133,7 +192,8 @@ def AV_assemble(filename):
     elif lines[i][0] in opCode1:
       # one operand
       if len(lines[i]) == 2:
-        print(lines[i][1])
+        lineOb.dstCode, lineOb.vbool, lineOb.value = check(lines[i][1], variables)
+        
       else:
         print('error on this line: ', lines[i])
         exit(1)
@@ -154,8 +214,12 @@ def AV_assemble(filename):
       else:
         print('error on this line: ', lines[i])
         exit(1)
-
+    
     new_lines.append(lineOb)
+
+  for i in new_lines:
+    if type(i) == Line:
+      print(i.srcCode, i.dstCode)
     
     
   
