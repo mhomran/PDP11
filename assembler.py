@@ -132,6 +132,9 @@ def AV_assemble(filename):
   variables = {}  # to save variables
   new_lines = []
   index = 0
+  oldI = 0
+  interrupt = 0
+  isr = 1024
   for i in range(len(lines)):
     if len(lines[i]) == 0:
       continue
@@ -147,17 +150,28 @@ def AV_assemble(filename):
     # if label save it and continue
     labelI = lines[i].find(':')
     if labelI != -1:
-      labels[lines[i][:labelI]] = index
+      label = lines[i][:labelI]
+      if label.upper() == 'INTERRUPT':
+        interrupt = 1
+        oldI = index
+        index = isr
+        continue
+      labels[label] = index
       continue
 
     
     lineOb = Line()
     lines[i] = lines[i].split()
+    if len(lines[i]) == 0:
+      continue
     lines[i][0] = lines[i][0].lower()
     lineOb.index = index
 
     # if variable save it and continue
     if lines[i][0] == 'define':
+      if interrupt == 1:
+        index = oldI
+        interrupt = 0
       #variable
       variables[lines[i][1]] = (lines[i][2], index)
       index += 1
@@ -205,8 +219,8 @@ def AV_assemble(filename):
       if lineOb.vDst != 0:
         index += 1
     elif lines[i][0] in opCode1:
-      lineOb.no_op = 1
       lineOb.mneum = opCode1[lines[i][0]]
+      lineOb.no_op = 1
       # one operand
       if len(lines[i]) == 2:
         lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(lines[i][1], variables)
@@ -228,14 +242,16 @@ def AV_assemble(filename):
         exit(1)
 
     elif lines[i][0] in misc:
-      lineOb.no_op = 5
       lineOb.mneum = misc[lines[i][0]]
+      lineOb.no_op = 5
       # misc
       if (len(lines[i]) == 2):
         lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(lines[i][1], variables)
         lineOb.jsr = 1
         if lineOb.vDst != 0:
           index += 1
+      
+
         
     else:
       lineOb.mneum = opCodenop[lines[i][0]]
