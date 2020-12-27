@@ -1,7 +1,8 @@
 jsr #7
-RTS
-iret
-;this code doesn’t do anything significant, it is just an example
+
+
+
+    ;this code doesn’t do anything significant, it is just an example
 MOV N, R0 ; R0 = 7 address 0
 XOR R1, R1 ; R1 = 0 address 2
 MOV #20, R3 ; R3 = 20 address 3
@@ -20,6 +21,10 @@ INC R3 ; R3=20 address 15
 Label2: ; address 16
 BR Label3 ; address 16
 HLT ; address 17
+
+Interrupt:
+  mov R3, R4
+  INC @R3
 
 
 Define N 7 ; address 18
