@@ -12,7 +12,7 @@
 import re
 
 class Line:
-  def __init__(self, mneum="", no_op=0, srcCode=-1, dstCode=-1, index=-1, valueS=0, valueD=0, vSrc=0, vDst=0):
+  def __init__(self, mneum="", no_op=0, srcCode=-1, dstCode=-1, index=-1, valueS=0, valueD=0, vSrc=0, vDst=0, jsr=0):
     self.mneum = mneum
     self.no_op = no_op
     self.srcCode = srcCode
@@ -22,6 +22,7 @@ class Line:
     self.vDst = vDst
     self.valueS = valueS
     self.valueD = valueD
+    self.jsr = jsr
 
 def check(op, variables):
   indir = 0
@@ -75,6 +76,8 @@ def check(op, variables):
         exit(1)
     vbool = 1
 
+  
+
   if code == -1:
     vbool = 2
     code = 7
@@ -97,6 +100,10 @@ opCodeB = {
   'br': '000', 'beq': '001', 'bne': '010', 'blo': '011', 'bls': '100',
   'bhi': '101', 'bhs': '110'
 }
+
+misc = { 'jsr': '1100000000',
+ 'rts': '1100010000000000',
+  'iret':'1100100000000000'}
 
 opCodenop = {'hlt': '101100', 'nop': '101101'}
   
@@ -152,7 +159,7 @@ def AV_assemble(filename):
     # if variable save it and continue
     if lines[i][0] == 'define':
       #variable
-      variables[lines[i][1]] = index
+      variables[lines[i][1]] = (lines[i][2], index)
       index += 1
       continue
 
@@ -220,7 +227,16 @@ def AV_assemble(filename):
         print('error on this line: ', lines[i])
         exit(1)
 
-
+    elif lines[i][0] in misc:
+      lineOb.no_op = 5
+      lineOb.mneum = misc[lines[i][0]]
+      # misc
+      if (len(lines[i]) == 2):
+        lineOb.dstCode, lineOb.vDst, lineOb.valueD = check(lines[i][1], variables)
+        lineOb.jsr = 1
+        if lineOb.vDst != 0:
+          index += 1
+        
     else:
       lineOb.mneum = opCodenop[lines[i][0]]
       lineOb.no_op = 0
@@ -234,6 +250,8 @@ def AV_assemble(filename):
 
   # final round -> you either win or die
   for line in new_lines:
+    # print address of each line (first word)
+    print(f"{hex(line.index)[2:]}: ", end="", file=output)
     if line.no_op == 0:
       line.mneum = line.mneum + '0000000000'
       print(line.mneum, file=output)
@@ -241,11 +259,14 @@ def AV_assemble(filename):
     elif line.no_op == 1:
       if len(line.mneum) == 4:
         line.mneum = '100100' + line.mneum
+        # operand
         print(line.mneum+ line.dstCode, file=output)
         if line.vDst == 1:
-          print(line.valueD, file=output)
+          print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
+          print("{0:{fill}16b}".format((line.valueD + 2**16) % 2**16, fill='0'), file=output)
         elif line.vDst == 2:
-          print(int(variables[line.valueD])-line.index+1, file=output)
+          print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
+          print("{0:{fill}16b}".format((int(variables[line.valueD][1])-line.index-1 + 2**16) % 2**16, fill='0'), file=output)
           continue
       else:
         line.mneum = '10100' + line.mneum
@@ -253,26 +274,56 @@ def AV_assemble(filename):
         print(line.mneum + "{0:{fill}8b}".format((offset + 2**8) % 2**8, fill='0'), file=output)
         continue
     
-    if line.no_op == 2:
+    elif line.no_op == 2:
       one = None
       two = None
-      print(line.mneum + str(line.srcCode) + str(line.dstCode), file=output)
+      print(line.mneum + line.srcCode + line.dstCode, file=output)
       if line.vSrc == 1:
         one = line.valueS
       elif line.vSrc == 2:
-        one = int(variables[line.valueS]) - line.index - 1
+        one = int(variables[line.valueS][1]) - line.index - 1
       if line.vDst == 1:
         two = line.valueD
       elif line.vDst == 2:
-        two = int(variables[line.valueD]) - line.index - 1
+        two = int(variables[line.valueD][1]) - line.index - 1
         if one is not None:
           two -= 1
     
       if one is not None:
+        print(f"{hex(line.index+1)[2:]}: ", end="", file=output)
         print("{0:{fill}16b}".format((one + 2**16) % 2**16, fill='0'), file=output)
       if two is not None:
+        if line.vSrc != 0:
+          line.index += 1
+        print(f"{hex(line.index+1)[2:]}: ", end="", file=output)
         print("{0:{fill}16b}".format((two + 2**16) % 2**16, fill='0'), file=output)
   
+    elif line.no_op == 5:
+      if len(line.mneum) == 10:
+        print(line.mneum+ line.dstCode, file=output)
+        if line.vDst == 1:
+          print(f"{hex(line.index+1)[2:]}: ", end="", file=output)
+          print("{0:{fill}16b}".format((line.valueD + 2**16) % 2**16, fill='0'), file=output)
+          
+        elif line.vDst == 2:
+          print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
+          address = ''
+          if line.valueD in labels:
+            address = labels[line.valueD]
+          elif line.valueD in variables:
+            address = int(variables[line.valueD][0])
+
+          print("{0:{fill}16b}".format((address + 2**16) % 2**16, fill='0'), file=output)
+          
+
+      else:
+        print(line.mneum, file=output)
+
+  values = variables.values()
+  values = sorted(values, key= lambda k : k[1])
+
+  for value in values:
+    print(f"{hex(value[1])[2:]}: " + "{0:{fill}16b}".format((int(value[0]) + 2**16) % 2**16, fill='0'), file=output)
   
     
     
