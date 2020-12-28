@@ -110,8 +110,8 @@ opCodenop = {'hlt': '101100', 'nop': '101101'}
 
 
 def main():
-  # filename = input('Enter the file name: ')
-  AV_assemble('test.txt')
+  filename = input('Enter the file name: ')
+  AV_assemble(filename)
 
 
 def AV_assemble(filename):
@@ -279,7 +279,7 @@ def AV_assemble(filename):
         print(line.mneum+ line.dstCode, file=output)
         if line.vDst == 1:
           print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
-          print("{0:{fill}16b}".format((line.valueD + 2**16) % 2**16, fill='0'), file=output)
+          print("{0:{fill}16b}".format((int(line.valueD) + 2**16) % 2**16, fill='0'), file=output)
         elif line.vDst == 2:
           print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
           print("{0:{fill}16b}".format((int(variables[line.valueD][1])-line.index-1 + 2**16) % 2**16, fill='0'), file=output)
@@ -295,11 +295,11 @@ def AV_assemble(filename):
       two = None
       print(line.mneum + line.srcCode + line.dstCode, file=output)
       if line.vSrc == 1:
-        one = line.valueS
+        one = int(line.valueS)
       elif line.vSrc == 2:
         one = int(variables[line.valueS][1]) - line.index - 1
       if line.vDst == 1:
-        two = line.valueD
+        two = int(line.valueD)
       elif line.vDst == 2:
         two = int(variables[line.valueD][1]) - line.index - 1
         if one is not None:
@@ -316,21 +316,23 @@ def AV_assemble(filename):
   
     elif line.no_op == 5:
       if len(line.mneum) == 10:
-        print(line.mneum+ line.dstCode, file=output)
+        # jsr
         if line.vDst == 1:
+          print(line.mneum+ line.dstCode, file=output)
           print(f"{hex(line.index+1)[2:]}: ", end="", file=output)
-          print("{0:{fill}16b}".format((line.valueD + 2**16) % 2**16, fill='0'), file=output)
+          print("{0:{fill}16b}".format((int(line.valueD) + 2**16) % 2**16, fill='0'), file=output)
           
         elif line.vDst == 2:
-          print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
           address = ''
           if line.valueD in labels:
             address = labels[line.valueD]
+            line.dstCode = '0' + line.dstCode[1:]
           elif line.valueD in variables:
             address = int(variables[line.valueD][0])
 
+          print(line.mneum+ line.dstCode, file=output)
+          print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
           print("{0:{fill}16b}".format((address + 2**16) % 2**16, fill='0'), file=output)
-          
 
       else:
         print(line.mneum, file=output)
