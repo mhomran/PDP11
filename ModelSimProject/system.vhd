@@ -36,6 +36,20 @@ component decAxB is
    );
 end component;
 
+
+--alu
+component alu is
+generic (WORDSIZE : integer := 16);
+port (                 	
+    A, B: in std_logic_vector(WORDSIZE-1 downto 0); 
+    S: in std_logic_vector(3 downto 0);
+    Cin: in std_logic;
+    FLAGS_Cin: in std_logic;
+    F: out std_logic_vector(WORDSIZE-1 downto 0);
+    ALU_FLAGS: out std_logic_vector(WORDSIZE-1 downto 0)
+    );            		
+end component; 
+
 --ram
 component ram is
 	generic(
@@ -82,6 +96,7 @@ signal ram_we : std_logic;
 -- ALU
 signal ALU_FLAGS : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal FLAGS_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal Z_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
 --Control Signals
 signal Rsrc_out : std_logic;
@@ -110,6 +125,9 @@ signal FLAGS_out : std_logic;
 signal FLAGS_ch : std_logic;
 
 signal Address_out : std_logic;
+
+signal Carry_in : std_logic;
+signal alu_selector : std_logic_vector(3 downto 0);
 
 begin
   ----------------------------register file-----------------------------
@@ -140,7 +158,7 @@ begin
 
   Y: reg generic map (WORDSIZE) port map(clk, Y_in, bus_io, Y_output);
   
-  Z: reg generic map (WORDSIZE) port map(clk, Z_in, bus_io, Z_output);
+  Z: reg generic map (WORDSIZE) port map(clk, Z_in, Z_input, Z_output);
   bus_io <= Z_output when Z_out = '1' else (others => 'Z');
 
   ADDRESS_DEC_output(7 downto 0) <= IR_output(7 downto 0);
@@ -150,6 +168,9 @@ begin
   FLAGS: reg generic map (WORDSIZE) port map(clk, FLAGS_in, FLAGS_input, FLAGS_output);
   FLAGS_input <= bus_io when FLAGS_ch = '1' else ALU_FLAGS;
   bus_io <= FLAGS_output when FLAGS_out = '1' else (others => 'Z');
+  ---------------------------ALU----------------------------------------
+  ALU_inst: alu generic map (WORDSIZE) port map(Y_output, bus_io, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
+
   ---------------------------RAM----------------------------------------
   --ram_we <= not dst_en;
   --ram_inst: ram generic map (WORDSIZE, RAM_ADDRESS_SIZE) port map(clk, ram_we, counter_out, bus_io, Ram_out);

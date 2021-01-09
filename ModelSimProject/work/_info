@@ -8,210 +8,448 @@ z2
 !i10f 100
 cModel Technology
 dZ:/college/arch/labs/lab3/req
-Ecounter
-Z0 w1605535730
-Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z6 dZ:/college/arch/Project/ModelSimProject
-Z7 8Z:/college/arch/Project/ModelSimProject/counter.vhd
-Z8 FZ:/college/arch/Project/ModelSimProject/counter.vhd
+Ealu
+Z0 w1610227976
+Z1 DPx8 synopsys 10 attributes 0 22 liCm]LV3<lX4Zl>o6^8IV1
+Z2 DPx4 ieee 14 std_logic_misc 0 22 BLzBaQbXS>Q1z>5YO]m[52
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dZ:/college/arch/Project/ModelSimProject
+Z6 8Z:\college\arch\Project\ModelSimProject\ALU.vhd
+Z7 FZ:\college\arch\Project\ModelSimProject\ALU.vhd
 l0
-L6
-VYo<NO[0L6NSPR9VDK0VaH3
-!s100 P:4Dd:=J]:8W0CTF`E2RD1
-Z9 OV;C;10.5b;63
+L5
+V1>aKe3Za:l@9<iYk4NXl01
+!s100 gGhFNlmmCDhc`UG?VOjj<1
+Z8 OV;C;10.5b;63
 32
-Z10 !s110 1610215446
+Z9 !s110 1610227979
 !i10b 1
-Z11 !s108 1610215446.000000
-Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/counter.vhd|
-Z13 !s107 Z:/college/arch/Project/ModelSimProject/counter.vhd|
+Z10 !s108 1610227979.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:\college\arch\Project\ModelSimProject\ALU.vhd|
+Z12 !s107 Z:\college\arch\Project\ModelSimProject\ALU.vhd|
 !i113 1
-Z14 o-work work -2002 -explicit
-Z15 tExplicit 1 CvgOpt 0
-Acounter_1
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Artl
 R1
 R2
 R3
 R4
+Z15 DEx4 work 3 alu 0 22 1>aKe3Za:l@9<iYk4NXl01
+l32
+L18
+VMzPz1U[z@WYgT4L^K6E973
+!s100 <D;jN4hjeN179>75kl8Xf0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ecounter
+Z16 w1605535730
+Z17 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z18 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z19 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R3
+R4
 R5
+Z20 8Z:/college/arch/Project/ModelSimProject/counter.vhd
+Z21 FZ:/college/arch/Project/ModelSimProject/counter.vhd
+l0
+L6
+VYo<NO[0L6NSPR9VDK0VaH3
+!s100 P:4Dd:=J]:8W0CTF`E2RD1
+R8
+32
+Z22 !s110 1610221657
+!i10b 1
+Z23 !s108 1610221657.000000
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/counter.vhd|
+Z25 !s107 Z:/college/arch/Project/ModelSimProject/counter.vhd|
+!i113 1
+R13
+R14
+Acounter_1
+R17
+R18
+R19
+R3
+R4
 DEx4 work 7 counter 0 22 Yo<NO[0L6NSPR9VDK0VaH3
 l17
 L15
 V:7B__d3o>@]]:]?Z?A2Nf1
 !s100 `B3c4a=V^ke77jeWYeVTT2
-R9
+R8
 32
-R10
+R22
 !i10b 1
-R11
-R12
-R13
+R23
+R24
+R25
 !i113 1
+R13
 R14
-R15
 Edecaxb
-Z16 w1605136093
+Z26 w1605136093
+R19
 R3
 R4
 R5
-R6
-Z17 8Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
-Z18 FZ:/college/arch/Project/ModelSimProject/decoderAxB.vhd
+Z27 8Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
+Z28 FZ:/college/arch/Project/ModelSimProject/decoderAxB.vhd
 l0
 L5
 V:TDXQe4`C>Z@Ei8cSXH;V0
 !s100 4T^DPFT?IOgL1j:F_i;eZ0
-R9
+R8
 32
-R10
+R22
 !i10b 1
-R11
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
-Z20 !s107 Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
+R23
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
+Z30 !s107 Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
 !i113 1
+R13
 R14
-R15
 Adecaxb_1
+R19
 R3
 R4
-R5
 DEx4 work 6 decaxb 0 22 :TDXQe4`C>Z@Ei8cSXH;V0
 l16
 L14
 V?O9XPPj?]:bf7hL<NJ6m@2
 !s100 XRlZcfY:lj;L39=eO^kib0
-R9
+R8
 32
-R10
+R22
 !i10b 1
-R11
-R19
-R20
+R23
+R29
+R30
 !i113 1
+R13
 R14
-R15
-Eram
-Z21 w1605535377
+Emy_adder
+Z31 w1603884454
 R3
 R4
 R5
-R6
-Z22 8Z:/college/arch/Project/ModelSimProject/ram.vhd
-Z23 FZ:/college/arch/Project/ModelSimProject/ram.vhd
+Z32 8Z:/college/arch/Project/ModelSimProject/my_adder.vhd
+Z33 FZ:/college/arch/Project/ModelSimProject/my_adder.vhd
+l0
+L4
+VFjlMaf=9aFlNWPMnMXH?k3
+!s100 A5lJZfMh@V_I]hj`4ZSML1
+R8
+32
+Z34 !s110 1610221658
+!i10b 1
+Z35 !s108 1610221658.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
+Z37 !s107 Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
+!i113 1
+R13
+R14
+Aa_my_adder
+R3
+R4
+DEx4 work 8 my_adder 0 22 FjlMaf=9aFlNWPMnMXH?k3
+l10
+L9
+V^2>izMo<CX9]50X6Q[=c23
+!s100 biX0WQeT60z4A4PzaGZA22
+R8
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R13
+R14
+Eparta
+Z38 w1604431492
+R3
+R4
+R5
+Z39 8Z:/college/arch/Project/ModelSimProject/partA.vhd
+Z40 FZ:/college/arch/Project/ModelSimProject/partA.vhd
+l0
+L4
+V<GiIUJZjecI@FT8YBBogO1
+!s100 ]nc0VigSMdnR^Hl2_?>S70
+R8
+32
+R34
+!i10b 1
+R35
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partA.vhd|
+Z42 !s107 Z:/college/arch/Project/ModelSimProject/partA.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+DEx4 work 5 parta 0 22 <GiIUJZjecI@FT8YBBogO1
+l29
+L15
+V5Dd0=DCLo?h@b^8<8F8OS0
+!s100 J^WkVkB<iI?Z[`Z3f<QhG2
+R8
+32
+R34
+!i10b 1
+R35
+R41
+R42
+!i113 1
+R13
+R14
+Epartb
+Z43 w1603892203
+R3
+R4
+R5
+Z44 8Z:/college/arch/Project/ModelSimProject/partB.vhd
+Z45 FZ:/college/arch/Project/ModelSimProject/partB.vhd
+l0
+L4
+Vf3B]nk7C4d_Jz530`TQ2K0
+!s100 MfmEU1JdmLX[d_>9^H05X1
+R8
+32
+R34
+!i10b 1
+R35
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partB.vhd|
+Z47 !s107 Z:/college/arch/Project/ModelSimProject/partB.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+DEx4 work 5 partb 0 22 f3B]nk7C4d_Jz530`TQ2K0
+l14
+L13
+V`<c[4l1zGRoWIl385l9gU2
+!s100 Lf[iHeK>j;aTA1E;kLfP_1
+R8
+32
+R34
+!i10b 1
+R35
+R46
+R47
+!i113 1
+R13
+R14
+Epartc
+Z48 w1604004136
+R3
+R4
+R5
+Z49 8Z:/college/arch/Project/ModelSimProject/partC.vhd
+Z50 FZ:/college/arch/Project/ModelSimProject/partC.vhd
+l0
+L4
+VZ]A3HLFhzBHnGD6HT5^]:2
+!s100 hXSC=9@2Q51T^A;JWh8ln3
+R8
+32
+Z51 !s110 1610221659
+!i10b 1
+Z52 !s108 1610221659.000000
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partC.vhd|
+Z54 !s107 Z:/college/arch/Project/ModelSimProject/partC.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+DEx4 work 5 partc 0 22 Z]A3HLFhzBHnGD6HT5^]:2
+l16
+L15
+VlgXO06Vf4b`E`dI@bOhz40
+!s100 A2PKInJCBNI==GfHzmOOl2
+R8
+32
+R51
+!i10b 1
+R52
+R53
+R54
+!i113 1
+R13
+R14
+Epartd
+Z55 w1604004256
+R3
+R4
+R5
+Z56 8Z:/college/arch/Project/ModelSimProject/partD.vhd
+Z57 FZ:/college/arch/Project/ModelSimProject/partD.vhd
+l0
+L4
+V9:@L_>RW7O7P_FOZI2AF33
+!s100 Qb@zCHiPC2fQS`I0AN1k01
+R8
+32
+R51
+!i10b 1
+R52
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partD.vhd|
+Z59 !s107 Z:/college/arch/Project/ModelSimProject/partD.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+DEx4 work 5 partd 0 22 9:@L_>RW7O7P_FOZI2AF33
+l16
+L15
+VgcAX`7JJ688ND8c9YMI[=3
+!s100 [<V6R:2gbzTHD]Xd3kkPG1
+R8
+32
+R51
+!i10b 1
+R52
+R58
+R59
+!i113 1
+R13
+R14
+Eram
+Z60 w1605535377
+R19
+R3
+R4
+R5
+Z61 8Z:/college/arch/Project/ModelSimProject/ram.vhd
+Z62 FZ:/college/arch/Project/ModelSimProject/ram.vhd
 l0
 L5
 V_M:GVGX;Ae2bFOnkUg=^G0
 !s100 DbC>:^R;7z9QUUgnPRT_b0
-R9
+R8
 32
-R10
+R34
 !i10b 1
-R11
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/ram.vhd|
-Z25 !s107 Z:/college/arch/Project/ModelSimProject/ram.vhd|
+R35
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/ram.vhd|
+Z64 !s107 Z:/college/arch/Project/ModelSimProject/ram.vhd|
 !i113 1
+R13
 R14
-R15
 Asyncrama
+R19
 R3
 R4
-R5
 DEx4 work 3 ram 0 22 _M:GVGX;Ae2bFOnkUg=^G0
 l23
 L18
 VBnNl0a9_2^ozLdJN=ECHa2
 !s100 h?KPhTO1=YN9@_[5jTT]01
-R9
+R8
 32
-R10
+R34
 !i10b 1
-R11
-R24
-R25
+R35
+R63
+R64
 !i113 1
+R13
 R14
-R15
 Ereg
-Z26 w1610215468
+Z65 w1610215468
+R3
 R4
 R5
-R6
-Z27 8Z:/college/arch/Project/ModelSimProject/register.vhd
-Z28 FZ:/college/arch/Project/ModelSimProject/register.vhd
+Z66 8Z:/college/arch/Project/ModelSimProject/register.vhd
+Z67 FZ:/college/arch/Project/ModelSimProject/register.vhd
 l0
 L4
 VCBbiUNno@g]33mWP:nC8G0
 !s100 i?N]<TG2^^@7[N22Xc1Da0
-R9
+R8
 32
-Z29 !s110 1610215477
+R34
 !i10b 1
-Z30 !s108 1610215476.000000
-Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/register.vhd|
-Z32 !s107 Z:/college/arch/Project/ModelSimProject/register.vhd|
+R35
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/register.vhd|
+Z69 !s107 Z:/college/arch/Project/ModelSimProject/register.vhd|
 !i113 1
+R13
 R14
-R15
 Areg_1
+R3
 R4
-R5
 DEx4 work 3 reg 0 22 CBbiUNno@g]33mWP:nC8G0
 l15
 L14
 V`kdi`Lk]jnIB;8M:jIO5>2
 !s100 hPXD@TE<znL@^`ReCokZa2
-R9
+R8
 32
-R29
+R34
 !i10b 1
-R30
-R31
-R32
+R35
+R68
+R69
 !i113 1
+R13
 R14
-R15
 Esystem
-Z33 w1610221394
-Z34 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Z70 w1610226405
+Z71 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+R3
 R4
 R5
-R6
-Z35 8Z:/college/arch/Project/ModelSimProject/system.vhd
-Z36 FZ:/college/arch/Project/ModelSimProject/system.vhd
+Z72 8Z:/college/arch/Project/ModelSimProject/system.vhd
+Z73 FZ:/college/arch/Project/ModelSimProject/system.vhd
 l0
 L5
 VogbLKlakDnLl6FGfnXl]Y0
 !s100 Ho;>EbH6<W9BLG>lMc5>;3
-R9
+R8
 32
-Z37 !s110 1610221398
+Z74 !s110 1610226410
 !i10b 1
-Z38 !s108 1610221398.000000
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/system.vhd|
-Z40 !s107 Z:/college/arch/Project/ModelSimProject/system.vhd|
+Z75 !s108 1610226410.000000
+Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/system.vhd|
+Z77 !s107 Z:/college/arch/Project/ModelSimProject/system.vhd|
 !i113 1
+R13
 R14
-R15
 Asystem_1
-R34
+R71
+R3
 R4
-R5
-Z41 DEx4 work 6 system 0 22 ogbLKlakDnLl6FGfnXl]Y0
-l114
+DEx4 work 6 system 0 22 ogbLKlakDnLl6FGfnXl]Y0
+l132
 L16
-V22Z5<iJ`jl_D5F9;OSQzh3
-!s100 DWMmRz;=3@b@_H=ac0zj>1
-R9
+Vh6gnaRC]LS6bISLDCR6iU3
+!s100 mb67D>PLON0]jjh30gQ022
+R8
 32
-R37
+R74
 !i10b 1
-R38
-R39
-R40
+R75
+R76
+R77
 !i113 1
+R13
 R14
-R15
