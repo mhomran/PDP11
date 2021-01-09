@@ -1,0 +1,38 @@
+Z:/college/arch/Project/ModelSimProject/ram.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/ram.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ram
+-- Compiling architecture syncrama of ram
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/counter.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity counter
+-- Compiling architecture counter_1 of counter
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/register.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/register.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg
+-- Compiling architecture reg_1 of reg
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity decAxB
+-- Compiling architecture decAxB_1 of decAxB
+
+} {} {}}
