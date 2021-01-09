@@ -53,9 +53,16 @@ end component;
 --inputs of the tristates
 type R_out is array (REG_NUM-1 downto 0) of std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal R_output : R_out;
-signal Ram_out : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
+signal Ram_out : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal IR_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal TEMP_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal SOURCE_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal DEST_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal Y_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal Z_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal FLAGS_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal ADDRESS_DEC_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
 --decoders output
 signal src_out : std_logic_vector(REG_NUM-1 DOWNTO 0);
@@ -72,6 +79,10 @@ signal bus_io : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 --ram WE signal
 signal ram_we : std_logic;
 
+-- ALU
+signal ALU_FLAGS : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal FLAGS_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+
 --Control Signals
 signal Rsrc_out : std_logic;
 signal Rdst_out : std_logic;
@@ -79,6 +90,26 @@ signal Rsrc_in : std_logic;
 signal Rdst_in : std_logic;
 
 signal IR_in : std_logic;
+
+signal TEMP_in : std_logic;
+signal TEMP_out : std_logic;
+
+signal SOURCE_in : std_logic;
+signal SOURCE_out : std_logic;
+
+signal DEST_in : std_logic;
+signal DEST_out : std_logic;
+
+signal Y_in : std_logic;
+
+signal Z_in : std_logic;
+signal Z_out : std_logic;
+
+signal FLAGS_in : std_logic;
+signal FLAGS_out : std_logic;
+signal FLAGS_ch : std_logic;
+
+signal Address_out : std_logic;
 
 begin
   ----------------------------register file-----------------------------
@@ -97,6 +128,28 @@ begin
   R_input_en <= dst_in or src_in;
   ----------------------------Other registers --------------------------
   IR: reg generic map (WORDSIZE) port map(clk, IR_in, bus_io, IR_output);  
+
+  TEMP: reg generic map (WORDSIZE) port map(clk, TEMP_in, bus_io, TEMP_output);
+  bus_io <= TEMP_output when TEMP_out = '1' else (others => 'Z');
+
+  SOURCE: reg generic map (WORDSIZE) port map(clk, SOURCE_in, bus_io, SOURCE_output);
+  bus_io <= SOURCE_output when SOURCE_out = '1' else (others => 'Z');
+
+  DEST: reg generic map (WORDSIZE) port map(clk, DEST_in, bus_io, DEST_output);
+  bus_io <= DEST_output when DEST_out = '1' else (others => 'Z');
+
+  Y: reg generic map (WORDSIZE) port map(clk, Y_in, bus_io, Y_output);
+  
+  Z: reg generic map (WORDSIZE) port map(clk, Z_in, bus_io, Z_output);
+  bus_io <= Z_output when Z_out = '1' else (others => 'Z');
+
+  ADDRESS_DEC_output(7 downto 0) <= IR_output(7 downto 0);
+  ADDRESS_DEC_output(WORDSIZE-1 downto 8) <= (others => '0');
+  bus_io <= ADDRESS_DEC_output when Address_out = '1' else (others => 'Z');
+
+  FLAGS: reg generic map (WORDSIZE) port map(clk, FLAGS_in, FLAGS_input, FLAGS_output);
+  FLAGS_input <= bus_io when FLAGS_ch = '1' else ALU_FLAGS;
+  bus_io <= FLAGS_output when FLAGS_out = '1' else (others => 'Z');
   ---------------------------RAM----------------------------------------
   --ram_we <= not dst_en;
   --ram_inst: ram generic map (WORDSIZE, RAM_ADDRESS_SIZE) port map(clk, ram_we, counter_out, bus_io, Ram_out);
