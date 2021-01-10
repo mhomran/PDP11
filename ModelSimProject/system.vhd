@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.math_real.all;
+use IEEE.std_logic_arith.all;
 
 entity system is
   GENERIC (
@@ -9,7 +10,8 @@ entity system is
     RAM_ADDRESS_SIZE : integer := 11 --to get 2K words
   );
   port(
-      clk_input: in std_logic
+      clk_input : in std_logic;
+      IRQ : in std_logic
     );  
 end system;
 
@@ -103,6 +105,9 @@ signal Z_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 --RAM
 signal MDR_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
+--Interrupt
+signal PC_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+
 --Control Signals
 signal Rsrc_out : std_logic;
 signal Rdst_out : std_logic;
@@ -142,14 +147,37 @@ signal RAM_Read : std_logic;
 
 signal HLT : std_logic := '0';
 
+signal INT : std_logic := '0';
+
+signal PC_in : std_logic := '0';
+signal PC_in_or_output : std_logic;
+signal PC_out : std_logic := '0';
+signal PC_out_or_output : std_logic;
+
+signal SP_in : std_logic := '0';
+signal SP_in_or_output : std_logic;
+signal SP_out : std_logic := '0';
+signal SP_out_or_output : std_logic;
+
 begin
   ----------------------------clock gating -----------------------------
   clk <= clk_input and not HLT;
   ----------------------------register file-----------------------------
-  R: for i in 0 to REG_NUM-1 generate
+  R: for i in 0 to REG_NUM-3 generate
     R_reg: reg generic map (WORDSIZE) port map(clk, R_input_en(i), bus_io, R_output(i));  
     bus_io <= R_output(i) when R_output_en(i) = '1' else (others => 'Z');
   end generate;
+
+  PC: reg generic map (WORDSIZE) port map(clk, PC_in_or_output, PC_input, R_output(REG_NUM-1));  
+  bus_io <= R_output(REG_NUM-1) when PC_out_or_output = '1' else (others => 'Z');
+  PC_in_or_output <= PC_in or R_input_en(REG_NUM-1);
+  PC_out_or_output <= PC_out or R_output_en(REG_NUM-1);
+  PC_input <= bus_io when INT = '0' else conv_std_logic_vector(1024, WORDSIZE); --1024 address (ISR base address)
+
+  SP: reg generic map (WORDSIZE) port map(clk, SP_in_or_output, bus_io, R_output(REG_NUM-2));  
+  bus_io <= R_output(REG_NUM-2) when SP_out_or_output = '1' else (others => 'Z');
+  SP_in_or_output <= SP_in or R_input_en(REG_NUM-2);
+  SP_out_or_output <= SP_out or R_output_en(REG_NUM-2);
   
   src_out_dec_inst: decAxB generic map (integer(ceil(log2(real(REG_NUM))))) port map(Rsrc_out, IR_output(8 downto 6), src_out);
   dst_out_dec_inst: decAxB generic map (integer(ceil(log2(real(REG_NUM))))) port map(Rdst_out, IR_output(2 downto 0), dst_out);
