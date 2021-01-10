@@ -9,11 +9,14 @@ entity system is
     RAM_ADDRESS_SIZE : integer := 11 --to get 2K words
   );
   port(
-      clk: in std_logic
+      clk_input: in std_logic
     );  
 end system;
 
 architecture system_1 of system is
+
+--CLK
+signal clk : std_logic;
 
 --register 
 component reg IS
@@ -137,7 +140,11 @@ signal MDR_out : std_logic;
 signal RAM_Write : std_logic;
 signal RAM_Read : std_logic;
 
+signal HLT : std_logic := '0';
+
 begin
+  ----------------------------clock gating -----------------------------
+  clk <= clk_input and not HLT;
   ----------------------------register file-----------------------------
   R: for i in 0 to REG_NUM-1 generate
     R_reg: reg generic map (WORDSIZE) port map(clk, R_input_en(i), bus_io, R_output(i));  
