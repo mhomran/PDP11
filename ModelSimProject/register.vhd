@@ -7,7 +7,7 @@ GENERIC (WORDSIZE : integer := 32);
 			 	clk : IN std_logic; 
 				en : in std_logic;
 		 		d : IN std_logic_vector(WORDSIZE-1 DOWNTO 0);
-				q : OUT std_logic_vector(WORDSIZE-1 DOWNTO 0)
+				q : OUT std_logic_vector(WORDSIZE-1 DOWNTO 0) := (others => '0')
 				);
 END reg;
 

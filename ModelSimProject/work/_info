@@ -36,7 +36,7 @@ R1
 R2
 R3
 R4
-Z15 DEx4 work 3 alu 0 22 1>aKe3Za:l@9<iYk4NXl01
+DEx4 work 3 alu 0 22 1>aKe3Za:l@9<iYk4NXl01
 l32
 L18
 VMzPz1U[z@WYgT4L^K6E973
@@ -52,33 +52,33 @@ R12
 R13
 R14
 Ecounter
-Z16 w1605535730
-Z17 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z18 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z19 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z15 w1605535730
+Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z18 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R3
 R4
 R5
-Z20 8Z:/college/arch/Project/ModelSimProject/counter.vhd
-Z21 FZ:/college/arch/Project/ModelSimProject/counter.vhd
+Z19 8Z:/college/arch/Project/ModelSimProject/counter.vhd
+Z20 FZ:/college/arch/Project/ModelSimProject/counter.vhd
 l0
 L6
 VYo<NO[0L6NSPR9VDK0VaH3
 !s100 P:4Dd:=J]:8W0CTF`E2RD1
 R8
 32
-Z22 !s110 1610221657
+Z21 !s110 1610221657
 !i10b 1
-Z23 !s108 1610221657.000000
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/counter.vhd|
-Z25 !s107 Z:/college/arch/Project/ModelSimProject/counter.vhd|
+Z22 !s108 1610221657.000000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/counter.vhd|
+Z24 !s107 Z:/college/arch/Project/ModelSimProject/counter.vhd|
 !i113 1
 R13
 R14
 Acounter_1
+R16
 R17
 R18
-R19
 R3
 R4
 DEx4 work 7 counter 0 22 Yo<NO[0L6NSPR9VDK0VaH3
@@ -88,38 +88,38 @@ V:7B__d3o>@]]:]?Z?A2Nf1
 !s100 `B3c4a=V^ke77jeWYeVTT2
 R8
 32
-R22
+R21
 !i10b 1
+R22
 R23
 R24
-R25
 !i113 1
 R13
 R14
 Edecaxb
-Z26 w1605136093
-R19
+Z25 w1605136093
+R18
 R3
 R4
 R5
-Z27 8Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
-Z28 FZ:/college/arch/Project/ModelSimProject/decoderAxB.vhd
+Z26 8Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
+Z27 FZ:/college/arch/Project/ModelSimProject/decoderAxB.vhd
 l0
 L5
 V:TDXQe4`C>Z@Ei8cSXH;V0
 !s100 4T^DPFT?IOgL1j:F_i;eZ0
 R8
 32
-R22
+R21
 !i10b 1
-R23
-Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
-Z30 !s107 Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
+R22
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
+Z29 !s107 Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
 !i113 1
 R13
 R14
 Adecaxb_1
-R19
+R18
 R3
 R4
 DEx4 work 6 decaxb 0 22 :TDXQe4`C>Z@Ei8cSXH;V0
@@ -129,32 +129,32 @@ V?O9XPPj?]:bf7hL<NJ6m@2
 !s100 XRlZcfY:lj;L39=eO^kib0
 R8
 32
-R22
+R21
 !i10b 1
-R23
+R22
+R28
 R29
-R30
 !i113 1
 R13
 R14
 Emy_adder
-Z31 w1603884454
+Z30 w1603884454
 R3
 R4
 R5
-Z32 8Z:/college/arch/Project/ModelSimProject/my_adder.vhd
-Z33 FZ:/college/arch/Project/ModelSimProject/my_adder.vhd
+Z31 8Z:/college/arch/Project/ModelSimProject/my_adder.vhd
+Z32 FZ:/college/arch/Project/ModelSimProject/my_adder.vhd
 l0
 L4
 VFjlMaf=9aFlNWPMnMXH?k3
 !s100 A5lJZfMh@V_I]hj`4ZSML1
 R8
 32
-Z34 !s110 1610221658
+Z33 !s110 1610221658
 !i10b 1
-Z35 !s108 1610221658.000000
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
-Z37 !s107 Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
+Z34 !s108 1610221658.000000
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
+Z36 !s107 Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
 !i113 1
 R13
 R14
@@ -168,32 +168,32 @@ V^2>izMo<CX9]50X6Q[=c23
 !s100 biX0WQeT60z4A4PzaGZA22
 R8
 32
-R34
+R33
 !i10b 1
+R34
 R35
 R36
-R37
 !i113 1
 R13
 R14
 Eparta
-Z38 w1604431492
+Z37 w1604431492
 R3
 R4
 R5
-Z39 8Z:/college/arch/Project/ModelSimProject/partA.vhd
-Z40 FZ:/college/arch/Project/ModelSimProject/partA.vhd
+Z38 8Z:/college/arch/Project/ModelSimProject/partA.vhd
+Z39 FZ:/college/arch/Project/ModelSimProject/partA.vhd
 l0
 L4
 V<GiIUJZjecI@FT8YBBogO1
 !s100 ]nc0VigSMdnR^Hl2_?>S70
 R8
 32
-R34
+R33
 !i10b 1
-R35
-Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partA.vhd|
-Z42 !s107 Z:/college/arch/Project/ModelSimProject/partA.vhd|
+R34
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partA.vhd|
+Z41 !s107 Z:/college/arch/Project/ModelSimProject/partA.vhd|
 !i113 1
 R13
 R14
@@ -207,32 +207,32 @@ V5Dd0=DCLo?h@b^8<8F8OS0
 !s100 J^WkVkB<iI?Z[`Z3f<QhG2
 R8
 32
-R34
+R33
 !i10b 1
-R35
+R34
+R40
 R41
-R42
 !i113 1
 R13
 R14
 Epartb
-Z43 w1603892203
+Z42 w1603892203
 R3
 R4
 R5
-Z44 8Z:/college/arch/Project/ModelSimProject/partB.vhd
-Z45 FZ:/college/arch/Project/ModelSimProject/partB.vhd
+Z43 8Z:/college/arch/Project/ModelSimProject/partB.vhd
+Z44 FZ:/college/arch/Project/ModelSimProject/partB.vhd
 l0
 L4
 Vf3B]nk7C4d_Jz530`TQ2K0
 !s100 MfmEU1JdmLX[d_>9^H05X1
 R8
 32
-R34
+R33
 !i10b 1
-R35
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partB.vhd|
-Z47 !s107 Z:/college/arch/Project/ModelSimProject/partB.vhd|
+R34
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partB.vhd|
+Z46 !s107 Z:/college/arch/Project/ModelSimProject/partB.vhd|
 !i113 1
 R13
 R14
@@ -246,32 +246,32 @@ V`<c[4l1zGRoWIl385l9gU2
 !s100 Lf[iHeK>j;aTA1E;kLfP_1
 R8
 32
-R34
+R33
 !i10b 1
-R35
+R34
+R45
 R46
-R47
 !i113 1
 R13
 R14
 Epartc
-Z48 w1604004136
+Z47 w1604004136
 R3
 R4
 R5
-Z49 8Z:/college/arch/Project/ModelSimProject/partC.vhd
-Z50 FZ:/college/arch/Project/ModelSimProject/partC.vhd
+Z48 8Z:/college/arch/Project/ModelSimProject/partC.vhd
+Z49 FZ:/college/arch/Project/ModelSimProject/partC.vhd
 l0
 L4
 VZ]A3HLFhzBHnGD6HT5^]:2
 !s100 hXSC=9@2Q51T^A;JWh8ln3
 R8
 32
-Z51 !s110 1610221659
+Z50 !s110 1610221659
 !i10b 1
-Z52 !s108 1610221659.000000
-Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partC.vhd|
-Z54 !s107 Z:/college/arch/Project/ModelSimProject/partC.vhd|
+Z51 !s108 1610221659.000000
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partC.vhd|
+Z53 !s107 Z:/college/arch/Project/ModelSimProject/partC.vhd|
 !i113 1
 R13
 R14
@@ -285,32 +285,32 @@ VlgXO06Vf4b`E`dI@bOhz40
 !s100 A2PKInJCBNI==GfHzmOOl2
 R8
 32
-R51
+R50
 !i10b 1
+R51
 R52
 R53
-R54
 !i113 1
 R13
 R14
 Epartd
-Z55 w1604004256
+Z54 w1604004256
 R3
 R4
 R5
-Z56 8Z:/college/arch/Project/ModelSimProject/partD.vhd
-Z57 FZ:/college/arch/Project/ModelSimProject/partD.vhd
+Z55 8Z:/college/arch/Project/ModelSimProject/partD.vhd
+Z56 FZ:/college/arch/Project/ModelSimProject/partD.vhd
 l0
 L4
 V9:@L_>RW7O7P_FOZI2AF33
 !s100 Qb@zCHiPC2fQS`I0AN1k01
 R8
 32
-R51
+R50
 !i10b 1
-R52
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partD.vhd|
-Z59 !s107 Z:/college/arch/Project/ModelSimProject/partD.vhd|
+R51
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partD.vhd|
+Z58 !s107 Z:/college/arch/Project/ModelSimProject/partD.vhd|
 !i113 1
 R13
 R14
@@ -324,132 +324,132 @@ VgcAX`7JJ688ND8c9YMI[=3
 !s100 [<V6R:2gbzTHD]Xd3kkPG1
 R8
 32
-R51
+R50
 !i10b 1
-R52
+R51
+R57
 R58
-R59
 !i113 1
 R13
 R14
 Eram
-Z60 w1605535377
-R19
+Z59 w1610300222
+R18
 R3
 R4
 R5
-Z61 8Z:/college/arch/Project/ModelSimProject/ram.vhd
-Z62 FZ:/college/arch/Project/ModelSimProject/ram.vhd
+Z60 8Z:/college/arch/Project/ModelSimProject/ram.vhd
+Z61 FZ:/college/arch/Project/ModelSimProject/ram.vhd
 l0
 L5
-V_M:GVGX;Ae2bFOnkUg=^G0
-!s100 DbC>:^R;7z9QUUgnPRT_b0
+VG<=<7C6C<EoDTQ6JhlS753
+!s100 zY_R6f254[LWfCAh?YN2i2
 R8
 32
-R34
+Z62 !s110 1610300228
 !i10b 1
-R35
-Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/ram.vhd|
-Z64 !s107 Z:/college/arch/Project/ModelSimProject/ram.vhd|
+Z63 !s108 1610300228.000000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/ram.vhd|
+Z65 !s107 Z:/college/arch/Project/ModelSimProject/ram.vhd|
 !i113 1
 R13
 R14
 Asyncrama
-R19
+R18
 R3
 R4
-DEx4 work 3 ram 0 22 _M:GVGX;Ae2bFOnkUg=^G0
-l23
-L18
-VBnNl0a9_2^ozLdJN=ECHa2
-!s100 h?KPhTO1=YN9@_[5jTT]01
+DEx4 work 3 ram 0 22 G<=<7C6C<EoDTQ6JhlS753
+l24
+L19
+VG_YG5FYXJ[bYhI154]`;V2
+!s100 eOV=6^Io>bA0Q7MXaN]MD0
 R8
 32
-R34
+R62
 !i10b 1
-R35
 R63
 R64
+R65
 !i113 1
 R13
 R14
 Ereg
-Z65 w1610215468
+Z66 w1610300031
 R3
 R4
 R5
-Z66 8Z:/college/arch/Project/ModelSimProject/register.vhd
-Z67 FZ:/college/arch/Project/ModelSimProject/register.vhd
+Z67 8Z:/college/arch/Project/ModelSimProject/register.vhd
+Z68 FZ:/college/arch/Project/ModelSimProject/register.vhd
 l0
 L4
-VCBbiUNno@g]33mWP:nC8G0
-!s100 i?N]<TG2^^@7[N22Xc1Da0
+V_fPB2Tezzz2^Z<XHUDA`D3
+!s100 KE[D650D5l;BEg`n6g1Ya3
 R8
 32
-R34
+Z69 !s110 1610300037
 !i10b 1
-R35
-Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/register.vhd|
-Z69 !s107 Z:/college/arch/Project/ModelSimProject/register.vhd|
+Z70 !s108 1610300037.000000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/register.vhd|
+Z72 !s107 Z:/college/arch/Project/ModelSimProject/register.vhd|
 !i113 1
 R13
 R14
 Areg_1
 R3
 R4
-DEx4 work 3 reg 0 22 CBbiUNno@g]33mWP:nC8G0
+DEx4 work 3 reg 0 22 _fPB2Tezzz2^Z<XHUDA`D3
 l15
 L14
 V`kdi`Lk]jnIB;8M:jIO5>2
 !s100 hPXD@TE<znL@^`ReCokZa2
 R8
 32
-R34
-!i10b 1
-R35
-R68
 R69
+!i10b 1
+R70
+R71
+R72
 !i113 1
 R13
 R14
 Esystem
-Z70 w1610226405
-Z71 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Z73 w1610300998
+Z74 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
 R3
 R4
 R5
-Z72 8Z:/college/arch/Project/ModelSimProject/system.vhd
-Z73 FZ:/college/arch/Project/ModelSimProject/system.vhd
+Z75 8Z:\college\arch\Project\ModelSimProject\system.vhd
+Z76 FZ:\college\arch\Project\ModelSimProject\system.vhd
 l0
 L5
-VogbLKlakDnLl6FGfnXl]Y0
-!s100 Ho;>EbH6<W9BLG>lMc5>;3
+VQ_[H=jX6KQN5icMR3Ef1W0
+!s100 EiJBCFcI7S`?G?cDSOPB`2
 R8
 32
-Z74 !s110 1610226410
+Z77 !s110 1610301005
 !i10b 1
-Z75 !s108 1610226410.000000
-Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/system.vhd|
-Z77 !s107 Z:/college/arch/Project/ModelSimProject/system.vhd|
+Z78 !s108 1610301005.000000
+Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:\college\arch\Project\ModelSimProject\system.vhd|
+Z80 !s107 Z:\college\arch\Project\ModelSimProject\system.vhd|
 !i113 1
 R13
 R14
 Asystem_1
-R71
+R74
 R3
 R4
-DEx4 work 6 system 0 22 ogbLKlakDnLl6FGfnXl]Y0
-l132
+Z81 DEx4 work 6 system 0 22 Q_[H=jX6KQN5icMR3Ef1W0
+l140
 L16
-Vh6gnaRC]LS6bISLDCR6iU3
-!s100 mb67D>PLON0]jjh30gQ022
+V<bX@F7]R3VhW;Wf@J:m[G2
+!s100 hG4^?oU3I@NY5]fkNdmCY1
 R8
 32
-R74
-!i10b 1
-R75
-R76
 R77
+!i10b 1
+R78
+R79
+R80
 !i113 1
 R13
 R14

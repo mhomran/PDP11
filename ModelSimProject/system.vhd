@@ -6,7 +6,7 @@ entity system is
   GENERIC (
     WORDSIZE : integer := 16;
     REG_NUM : integer := 8;
-    RAM_ADDRESS_SIZE : integer := 16
+    RAM_ADDRESS_SIZE : integer := 11 --to get 2K words
   );
   port(
       clk: in std_logic
@@ -68,7 +68,7 @@ end component;
 type R_out is array (REG_NUM-1 downto 0) of std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal R_output : R_out;
 
-signal Ram_out : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal RAM_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal IR_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal TEMP_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal SOURCE_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
@@ -77,6 +77,8 @@ signal Y_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Z_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal FLAGS_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal ADDRESS_DEC_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal MAR_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal MDR_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
 --decoders output
 signal src_out : std_logic_vector(REG_NUM-1 DOWNTO 0);
@@ -90,13 +92,13 @@ signal R_input_en : std_logic_vector(REG_NUM-1 DOWNTO 0);
 --the bus
 signal bus_io : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
---ram WE signal
-signal ram_we : std_logic;
-
 -- ALU
 signal ALU_FLAGS : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal FLAGS_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Z_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+
+--RAM
+signal MDR_input : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 
 --Control Signals
 signal Rsrc_out : std_logic;
@@ -128,6 +130,12 @@ signal Address_out : std_logic;
 
 signal Carry_in : std_logic;
 signal alu_selector : std_logic_vector(3 downto 0);
+
+signal MAR_in : std_logic;
+signal MDR_in : std_logic;
+signal MDR_out : std_logic;
+signal RAM_Write : std_logic;
+signal RAM_Read : std_logic;
 
 begin
   ----------------------------register file-----------------------------
@@ -164,18 +172,20 @@ begin
   ADDRESS_DEC_output(7 downto 0) <= IR_output(7 downto 0);
   ADDRESS_DEC_output(WORDSIZE-1 downto 8) <= (others => '0');
   bus_io <= ADDRESS_DEC_output when Address_out = '1' else (others => 'Z');
-
+  ---------------------------ALU----------------------------------------
+  ALU_inst: alu generic map (WORDSIZE) port map(Y_output, bus_io, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
+  
   FLAGS: reg generic map (WORDSIZE) port map(clk, FLAGS_in, FLAGS_input, FLAGS_output);
   FLAGS_input <= bus_io when FLAGS_ch = '1' else ALU_FLAGS;
   bus_io <= FLAGS_output when FLAGS_out = '1' else (others => 'Z');
-  ---------------------------ALU----------------------------------------
-  ALU_inst: alu generic map (WORDSIZE) port map(Y_output, bus_io, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
-
   ---------------------------RAM----------------------------------------
-  --ram_we <= not dst_en;
-  --ram_inst: ram generic map (WORDSIZE, RAM_ADDRESS_SIZE) port map(clk, ram_we, counter_out, bus_io, Ram_out);
-  --bus_io <= Ram_out when src_en = '0' else (others => 'Z');
-  ---------------------------Counter------------------------------------
-  --counter_inst: counter generic map(RAM_ADDRESS_SIZE) port map(clk, rst, counter_out);
-  
+  RAM_inst: ram generic map (WORDSIZE, RAM_ADDRESS_SIZE) 
+  port map(clk, RAM_Write, MAR_output(RAM_ADDRESS_SIZE-1 downto 0), MDR_output, RAM_output);
+
+  MAR: reg generic map (WORDSIZE) port map(clk, MAR_in, bus_io, MAR_output);
+
+  MDR: reg generic map (WORDSIZE) port map(clk, MDR_in, MDR_input, MDR_output);
+  MDR_input <= RAM_output when RAM_Read = '1' else bus_io;
+  bus_io <= MDR_output when MDR_out = '1' else (others => 'Z');
+ 
 end system_1;

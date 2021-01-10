@@ -18,23 +18,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity counter
 -- Compiling architecture counter_1 of counter
 
-} {} {}} Z:/college/arch/Project/ModelSimProject/system.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/system.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package MATH_REAL
--- Compiling entity system
--- Compiling architecture system_1 of system
-
-} {} {}} Z:/college/arch/Project/ModelSimProject/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/my_adder.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity my_adder
--- Compiling architecture a_my_adder of my_adder
-
 } {} {}} Z:/college/arch/Project/ModelSimProject/register.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/register.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -51,5 +34,23 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity decAxB
 -- Compiling architecture decAxB_1 of decAxB
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/my_adder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_adder
+-- Compiling architecture a_my_adder of my_adder
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none {Z:\college\arch\Project\ModelSimProject\ALU.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Compiling entity ALU
+-- Compiling architecture RTL of ALU
 
 } {} {}}
