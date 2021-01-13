@@ -1,13 +1,4 @@
-Z:/college/arch/Project/ModelSimProject/ram.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/ram.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity ram
--- Compiling architecture syncrama of ram
-
-} {} {}} Z:/college/arch/Project/ModelSimProject/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/counter.vhd
+Z:/college/arch/Project/ModelSimProject/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/counter.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -18,13 +9,45 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity counter
 -- Compiling architecture counter_1 of counter
 
-} {} {}} Z:/college/arch/Project/ModelSimProject/register.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/register.vhd
+} {} {}} Z:/college/arch/Project/ModelSimProject/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none {Z:\college\arch\Project\ModelSimProject\ALU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity reg
--- Compiling architecture reg_1 of reg
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Compiling entity ALU
+-- Compiling architecture RTL of ALU
+
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/counter.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/counter.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity counter
+-- Compiling architecture counter_1 of counter
+
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/ALU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/ALU.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Compiling entity ALU
+-- Compiling architecture RTL of ALU
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/ram.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/ram.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ram
+-- Compiling architecture syncrama of ram
 
 } {} {}} Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -35,6 +58,32 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity decAxB
 -- Compiling architecture decAxB_1 of decAxB
 
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/ram.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/ram.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ram
+-- Compiling architecture syncrama of ram
+
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/decoderAxB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/decoderAxB.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity decAxB
+-- Compiling architecture decAxB_1 of decAxB
+
+} {} {}} Z:/college/arch/Project/ModelSimProject/register.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/register.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg
+-- Compiling architecture reg_1 of reg
+
 } {} {}} Z:/college/arch/Project/ModelSimProject/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/college/arch/Project/ModelSimProject/my_adder.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -43,14 +92,39 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity my_adder
 -- Compiling architecture a_my_adder of my_adder
 
-} {} {}} Z:/college/arch/Project/ModelSimProject/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none {Z:\college\arch\Project\ModelSimProject\ALU.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/register.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/register.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package ATTRIBUTES
--- Loading package std_logic_misc
--- Compiling entity ALU
--- Compiling architecture RTL of ALU
+-- Compiling entity reg
+-- Compiling architecture reg_1 of reg
+
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/system.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/system.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MATH_REAL
+-- Loading package std_logic_arith
+-- Compiling entity system
+-- Compiling architecture system_1 of system
+
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/contorl_store.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/contorl_store.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity rom
+-- Compiling architecture roma of rom
+
+} {} {}} {D:/Study/Third Year/arch/PDP11/ModelSimProject/my_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/Study/Third Year/arch/PDP11/ModelSimProject/my_adder.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_adder
+-- Compiling architecture a_my_adder of my_adder
 
 } {} {}}

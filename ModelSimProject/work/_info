@@ -9,37 +9,37 @@ z2
 cModel Technology
 dZ:/college/arch/labs/lab3/req
 Ealu
-Z0 w1610227976
+Z0 w1610547583
 Z1 DPx8 synopsys 10 attributes 0 22 liCm]LV3<lX4Zl>o6^8IV1
 Z2 DPx4 ieee 14 std_logic_misc 0 22 BLzBaQbXS>Q1z>5YO]m[52
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z5 dZ:/college/arch/Project/ModelSimProject
-Z6 8Z:\college\arch\Project\ModelSimProject\ALU.vhd
-Z7 FZ:\college\arch\Project\ModelSimProject\ALU.vhd
+Z5 dD:/Study/Third Year/arch/PDP11/ModelSimProject
+Z6 8D:/Study/Third Year/arch/PDP11/ModelSimProject/ALU.vhd
+Z7 FD:/Study/Third Year/arch/PDP11/ModelSimProject/ALU.vhd
 l0
 L5
-V1>aKe3Za:l@9<iYk4NXl01
+V;j@d@MUK]=ignMZfd]N<51
 !s100 gGhFNlmmCDhc`UG?VOjj<1
-Z8 OV;C;10.5b;63
+Z8 OV;C;10.4d;61
 32
-Z9 !s110 1610227979
+Z9 !s110 1610552319
 !i10b 1
-Z10 !s108 1610227979.000000
-Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:\college\arch\Project\ModelSimProject\ALU.vhd|
-Z12 !s107 Z:\college\arch\Project\ModelSimProject\ALU.vhd|
+Z10 !s108 1610552319.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/ALU.vhd|
+Z12 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/ALU.vhd|
 !i113 1
 Z13 o-work work -2002 -explicit
-Z14 tExplicit 1 CvgOpt 0
+Z14 tExplicit 1
 Artl
 R1
 R2
 R3
 R4
-DEx4 work 3 alu 0 22 1>aKe3Za:l@9<iYk4NXl01
+DEx4 work 3 alu 0 22 ;j@d@MUK]=ignMZfd]N<51
 l32
 L18
-VMzPz1U[z@WYgT4L^K6E973
+VmUdfiQnDW7MIUkfnFl?fW2
 !s100 <D;jN4hjeN179>75kl8Xf0
 R8
 32
@@ -51,152 +51,195 @@ R12
 !i113 1
 R13
 R14
-Ecounter
-Z15 w1605535730
-Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z18 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Econtrol_store
+Z15 w1610552985
+R1
+R2
 R3
 R4
 R5
-Z19 8Z:/college/arch/Project/ModelSimProject/counter.vhd
-Z20 FZ:/college/arch/Project/ModelSimProject/counter.vhd
+Z16 8D:/Study/Third Year/arch/PDP11/ModelSimProject/contorl_store.vhd
+Z17 FD:/Study/Third Year/arch/PDP11/ModelSimProject/contorl_store.vhd
+l0
+L5
+V7Sd51`@>[6Q0bPOFMh1Q`0
+!s100 KgjD7zDm:m2eAzA`AHGCj2
+R8
+32
+Z18 !s110 1610552989
+!i10b 1
+Z19 !s108 1610552989.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/contorl_store.vhd|
+Z21 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/contorl_store.vhd|
+!i113 1
+R13
+R14
+Acs
+R1
+R2
+R3
+R4
+DEx4 work 13 control_store 0 22 7Sd51`@>[6Q0bPOFMh1Q`0
+l28
+L14
+V1e>bOA:b0:^n:iM^eebz=2
+!s100 eh>O9dMQhZS2AjMnHZYD63
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Ecounter
+R0
+Z22 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z23 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z24 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R3
+R4
+R5
+Z25 8D:/Study/Third Year/arch/PDP11/ModelSimProject/counter.vhd
+Z26 FD:/Study/Third Year/arch/PDP11/ModelSimProject/counter.vhd
 l0
 L6
-VYo<NO[0L6NSPR9VDK0VaH3
+Vk`iTGQkc]hZVNFB7T[ezP0
 !s100 P:4Dd:=J]:8W0CTF`E2RD1
 R8
 32
-Z21 !s110 1610221657
+R9
 !i10b 1
-Z22 !s108 1610221657.000000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/counter.vhd|
-Z24 !s107 Z:/college/arch/Project/ModelSimProject/counter.vhd|
+R10
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/counter.vhd|
+Z28 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/counter.vhd|
 !i113 1
 R13
 R14
 Acounter_1
-R16
-R17
-R18
-R3
-R4
-DEx4 work 7 counter 0 22 Yo<NO[0L6NSPR9VDK0VaH3
-l17
-L15
-V:7B__d3o>@]]:]?Z?A2Nf1
-!s100 `B3c4a=V^ke77jeWYeVTT2
-R8
-32
-R21
-!i10b 1
 R22
 R23
 R24
+R3
+R4
+DEx4 work 7 counter 0 22 k`iTGQkc]hZVNFB7T[ezP0
+l17
+L15
+VY0W<[=_90WKI25890[8ha1
+!s100 `B3c4a=V^ke77jeWYeVTT2
+R8
+32
+R9
+!i10b 1
+R10
+R27
+R28
 !i113 1
 R13
 R14
 Edecaxb
-Z25 w1605136093
-R18
+Z29 w1610548371
+R24
 R3
 R4
 R5
-Z26 8Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd
-Z27 FZ:/college/arch/Project/ModelSimProject/decoderAxB.vhd
+Z30 8D:/Study/Third Year/arch/PDP11/ModelSimProject/decoderAxB.vhd
+Z31 FD:/Study/Third Year/arch/PDP11/ModelSimProject/decoderAxB.vhd
 l0
 L5
-V:TDXQe4`C>Z@Ei8cSXH;V0
+Vb]jXV@@OERTjH3[kbiikC0
 !s100 4T^DPFT?IOgL1j:F_i;eZ0
 R8
 32
-R21
+R9
 !i10b 1
-R22
-Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
-Z29 !s107 Z:/college/arch/Project/ModelSimProject/decoderAxB.vhd|
+R10
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/decoderAxB.vhd|
+Z33 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/decoderAxB.vhd|
 !i113 1
 R13
 R14
 Adecaxb_1
-R18
+R24
 R3
 R4
-DEx4 work 6 decaxb 0 22 :TDXQe4`C>Z@Ei8cSXH;V0
+DEx4 work 6 decaxb 0 22 b]jXV@@OERTjH3[kbiikC0
 l16
 L14
-V?O9XPPj?]:bf7hL<NJ6m@2
+VBOceaK9JLB<ofOlnE6dM83
 !s100 XRlZcfY:lj;L39=eO^kib0
 R8
 32
-R21
+R9
 !i10b 1
-R22
-R28
-R29
+R10
+R32
+R33
 !i113 1
 R13
 R14
 Emy_adder
-Z30 w1603884454
+R0
 R3
 R4
 R5
-Z31 8Z:/college/arch/Project/ModelSimProject/my_adder.vhd
-Z32 FZ:/college/arch/Project/ModelSimProject/my_adder.vhd
+Z34 8D:/Study/Third Year/arch/PDP11/ModelSimProject/my_adder.vhd
+Z35 FD:/Study/Third Year/arch/PDP11/ModelSimProject/my_adder.vhd
 l0
 L4
-VFjlMaf=9aFlNWPMnMXH?k3
+V>KIFVIfaa3nb>;X<leAFS2
 !s100 A5lJZfMh@V_I]hj`4ZSML1
 R8
 32
-Z33 !s110 1610221658
+R9
 !i10b 1
-Z34 !s108 1610221658.000000
-Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
-Z36 !s107 Z:/college/arch/Project/ModelSimProject/my_adder.vhd|
+R10
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/my_adder.vhd|
+Z37 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/my_adder.vhd|
 !i113 1
 R13
 R14
 Aa_my_adder
 R3
 R4
-DEx4 work 8 my_adder 0 22 FjlMaf=9aFlNWPMnMXH?k3
+DEx4 work 8 my_adder 0 22 >KIFVIfaa3nb>;X<leAFS2
 l10
 L9
-V^2>izMo<CX9]50X6Q[=c23
+Vb8W7CILodzh6dTo]3RB4J3
 !s100 biX0WQeT60z4A4PzaGZA22
 R8
 32
-R33
+R9
 !i10b 1
-R34
-R35
+R10
 R36
+R37
 !i113 1
 R13
 R14
 Eparta
-Z37 w1604431492
+Z38 w1604431492
 R3
 R4
-R5
-Z38 8Z:/college/arch/Project/ModelSimProject/partA.vhd
-Z39 FZ:/college/arch/Project/ModelSimProject/partA.vhd
+Z39 dZ:/college/arch/Project/ModelSimProject
+Z40 8Z:/college/arch/Project/ModelSimProject/partA.vhd
+Z41 FZ:/college/arch/Project/ModelSimProject/partA.vhd
 l0
 L4
 V<GiIUJZjecI@FT8YBBogO1
 !s100 ]nc0VigSMdnR^Hl2_?>S70
-R8
+Z42 OV;C;10.5b;63
 32
-R33
+Z43 !s110 1610221658
 !i10b 1
-R34
-Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partA.vhd|
-Z41 !s107 Z:/college/arch/Project/ModelSimProject/partA.vhd|
+Z44 !s108 1610221658.000000
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partA.vhd|
+Z46 !s107 Z:/college/arch/Project/ModelSimProject/partA.vhd|
 !i113 1
 R13
-R14
+Z47 tExplicit 1 CvgOpt 0
 Artl
 R3
 R4
@@ -205,37 +248,37 @@ l29
 L15
 V5Dd0=DCLo?h@b^8<8F8OS0
 !s100 J^WkVkB<iI?Z[`Z3f<QhG2
-R8
+R42
 32
-R33
+R43
 !i10b 1
-R34
-R40
-R41
+R44
+R45
+R46
 !i113 1
 R13
-R14
+R47
 Epartb
-Z42 w1603892203
+Z48 w1603892203
 R3
 R4
-R5
-Z43 8Z:/college/arch/Project/ModelSimProject/partB.vhd
-Z44 FZ:/college/arch/Project/ModelSimProject/partB.vhd
+R39
+Z49 8Z:/college/arch/Project/ModelSimProject/partB.vhd
+Z50 FZ:/college/arch/Project/ModelSimProject/partB.vhd
 l0
 L4
 Vf3B]nk7C4d_Jz530`TQ2K0
 !s100 MfmEU1JdmLX[d_>9^H05X1
-R8
+R42
 32
-R33
+R43
 !i10b 1
-R34
-Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partB.vhd|
-Z46 !s107 Z:/college/arch/Project/ModelSimProject/partB.vhd|
+R44
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partB.vhd|
+Z52 !s107 Z:/college/arch/Project/ModelSimProject/partB.vhd|
 !i113 1
 R13
-R14
+R47
 Artl
 R3
 R4
@@ -244,37 +287,37 @@ l14
 L13
 V`<c[4l1zGRoWIl385l9gU2
 !s100 Lf[iHeK>j;aTA1E;kLfP_1
-R8
+R42
 32
-R33
+R43
 !i10b 1
-R34
-R45
-R46
+R44
+R51
+R52
 !i113 1
 R13
-R14
+R47
 Epartc
-Z47 w1604004136
+Z53 w1604004136
 R3
 R4
-R5
-Z48 8Z:/college/arch/Project/ModelSimProject/partC.vhd
-Z49 FZ:/college/arch/Project/ModelSimProject/partC.vhd
+R39
+Z54 8Z:/college/arch/Project/ModelSimProject/partC.vhd
+Z55 FZ:/college/arch/Project/ModelSimProject/partC.vhd
 l0
 L4
 VZ]A3HLFhzBHnGD6HT5^]:2
 !s100 hXSC=9@2Q51T^A;JWh8ln3
-R8
+R42
 32
-Z50 !s110 1610221659
+Z56 !s110 1610221659
 !i10b 1
-Z51 !s108 1610221659.000000
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partC.vhd|
-Z53 !s107 Z:/college/arch/Project/ModelSimProject/partC.vhd|
+Z57 !s108 1610221659.000000
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partC.vhd|
+Z59 !s107 Z:/college/arch/Project/ModelSimProject/partC.vhd|
 !i113 1
 R13
-R14
+R47
 Artl
 R3
 R4
@@ -283,37 +326,37 @@ l16
 L15
 VlgXO06Vf4b`E`dI@bOhz40
 !s100 A2PKInJCBNI==GfHzmOOl2
-R8
+R42
 32
-R50
+R56
 !i10b 1
-R51
-R52
-R53
+R57
+R58
+R59
 !i113 1
 R13
-R14
+R47
 Epartd
-Z54 w1604004256
+Z60 w1604004256
 R3
 R4
-R5
-Z55 8Z:/college/arch/Project/ModelSimProject/partD.vhd
-Z56 FZ:/college/arch/Project/ModelSimProject/partD.vhd
+R39
+Z61 8Z:/college/arch/Project/ModelSimProject/partD.vhd
+Z62 FZ:/college/arch/Project/ModelSimProject/partD.vhd
 l0
 L4
 V9:@L_>RW7O7P_FOZI2AF33
 !s100 Qb@zCHiPC2fQS`I0AN1k01
-R8
+R42
 32
-R50
+R56
 !i10b 1
-R51
-Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partD.vhd|
-Z58 !s107 Z:/college/arch/Project/ModelSimProject/partD.vhd|
+R57
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/partD.vhd|
+Z64 !s107 Z:/college/arch/Project/ModelSimProject/partD.vhd|
 !i113 1
 R13
-R14
+R47
 Artl
 R3
 R4
@@ -322,134 +365,177 @@ l16
 L15
 VgcAX`7JJ688ND8c9YMI[=3
 !s100 [<V6R:2gbzTHD]Xd3kkPG1
-R8
+R42
 32
-R50
+R56
 !i10b 1
-R51
 R57
-R58
+R63
+R64
 !i113 1
 R13
-R14
+R47
 Eram
-Z59 w1610300222
-R18
+R0
+R24
 R3
 R4
 R5
-Z60 8Z:/college/arch/Project/ModelSimProject/ram.vhd
-Z61 FZ:/college/arch/Project/ModelSimProject/ram.vhd
+Z65 8D:/Study/Third Year/arch/PDP11/ModelSimProject/ram.vhd
+Z66 FD:/Study/Third Year/arch/PDP11/ModelSimProject/ram.vhd
 l0
 L5
-VG<=<7C6C<EoDTQ6JhlS753
+V0>USARibFlHZ_TFBCQaXf3
 !s100 zY_R6f254[LWfCAh?YN2i2
 R8
 32
-Z62 !s110 1610300228
+R9
 !i10b 1
-Z63 !s108 1610300228.000000
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/ram.vhd|
-Z65 !s107 Z:/college/arch/Project/ModelSimProject/ram.vhd|
+R10
+Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/ram.vhd|
+Z68 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/ram.vhd|
 !i113 1
 R13
 R14
 Asyncrama
-R18
+R24
 R3
 R4
-DEx4 work 3 ram 0 22 G<=<7C6C<EoDTQ6JhlS753
+DEx4 work 3 ram 0 22 0>USARibFlHZ_TFBCQaXf3
 l24
 L19
-VG_YG5FYXJ[bYhI154]`;V2
+VObU^@ReTkNzl;ifAfeeRN1
 !s100 eOV=6^Io>bA0Q7MXaN]MD0
 R8
 32
-R62
+R9
 !i10b 1
-R63
-R64
-R65
+R10
+R67
+R68
 !i113 1
 R13
 R14
 Ereg
-Z66 w1610300031
+R0
 R3
 R4
 R5
-Z67 8Z:/college/arch/Project/ModelSimProject/register.vhd
-Z68 FZ:/college/arch/Project/ModelSimProject/register.vhd
+Z69 8D:/Study/Third Year/arch/PDP11/ModelSimProject/register.vhd
+Z70 FD:/Study/Third Year/arch/PDP11/ModelSimProject/register.vhd
 l0
 L4
-V_fPB2Tezzz2^Z<XHUDA`D3
+V6OJNW3?Zje33d^;iLV[bL0
 !s100 KE[D650D5l;BEg`n6g1Ya3
 R8
 32
-Z69 !s110 1610300037
+R9
 !i10b 1
-Z70 !s108 1610300037.000000
-Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/college/arch/Project/ModelSimProject/register.vhd|
-Z72 !s107 Z:/college/arch/Project/ModelSimProject/register.vhd|
+R10
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/register.vhd|
+Z72 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/register.vhd|
 !i113 1
 R13
 R14
 Areg_1
 R3
 R4
-DEx4 work 3 reg 0 22 _fPB2Tezzz2^Z<XHUDA`D3
+DEx4 work 3 reg 0 22 6OJNW3?Zje33d^;iLV[bL0
 l15
 L14
-V`kdi`Lk]jnIB;8M:jIO5>2
+VjDYQJ]5Dh8@n?Xo_fI:>H0
 !s100 hPXD@TE<znL@^`ReCokZa2
 R8
 32
-R69
+R9
 !i10b 1
-R70
+R10
 R71
 R72
 !i113 1
 R13
 R14
-Esystem
-Z73 w1610300998
-Z74 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Erom
+Z73 w1610553881
+R24
 R3
 R4
 R5
-Z75 8Z:\college\arch\Project\ModelSimProject\system.vhd
-Z76 FZ:\college\arch\Project\ModelSimProject\system.vhd
+R16
+R17
 l0
 L5
-VQ_[H=jX6KQN5icMR3Ef1W0
-!s100 EiJBCFcI7S`?G?cDSOPB`2
+V7WGnHX9YH4:M4oYjRK0Ii0
+!s100 YjDS:29FNRPibW[Z>`C280
 R8
 32
-Z77 !s110 1610301005
+Z74 !s110 1610555491
 !i10b 1
-Z78 !s108 1610301005.000000
-Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:\college\arch\Project\ModelSimProject\system.vhd|
-Z80 !s107 Z:\college\arch\Project\ModelSimProject\system.vhd|
+Z75 !s108 1610555491.000000
+R20
+R21
+!i113 1
+R13
+R14
+Aroma
+R24
+R3
+R4
+Z76 DEx4 work 3 rom 0 22 7WGnHX9YH4:M4oYjRK0Ii0
+l20
+L16
+Z77 VVcB=cEOXVo[k]mioQ;m<N2
+Z78 !s100 OAijN^FGHA^?Y:2N8Fd_>3
+R8
+32
+R74
+!i10b 1
+R75
+R20
+R21
+!i113 1
+R13
+R14
+Esystem
+R0
+R22
+Z79 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+R3
+R4
+R5
+Z80 8D:/Study/Third Year/arch/PDP11/ModelSimProject/system.vhd
+Z81 FD:/Study/Third Year/arch/PDP11/ModelSimProject/system.vhd
+l0
+L6
+VHBNMh55cQW9Fli^MMZ:_[0
+!s100 CU_hDV[n0]z>2DHEOhkl_2
+R8
+32
+R9
+!i10b 1
+R10
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/Study/Third Year/arch/PDP11/ModelSimProject/system.vhd|
+Z83 !s107 D:/Study/Third Year/arch/PDP11/ModelSimProject/system.vhd|
 !i113 1
 R13
 R14
 Asystem_1
-R74
+R22
+R79
 R3
 R4
-Z81 DEx4 work 6 system 0 22 Q_[H=jX6KQN5icMR3Ef1W0
-l140
-L16
-V<bX@F7]R3VhW;Wf@J:m[G2
-!s100 hG4^?oU3I@NY5]fkNdmCY1
+DEx4 work 6 system 0 22 HBNMh55cQW9Fli^MMZ:_[0
+l162
+L18
+VHg>P2V8jgf9YiB9Ve9`hb1
+!s100 XDW1Pmif=O>1<R]1AWdhC3
 R8
 32
-R77
+R9
 !i10b 1
-R78
-R79
-R80
+R10
+R82
+R83
 !i113 1
 R13
 R14
