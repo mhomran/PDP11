@@ -33,3 +33,17 @@ force -freeze sim:/pla/IR 0000011000000000 0
 run
 force -freeze sim:/pla/IR 0000001000000000 0
 run
+
+force -freeze sim:/pla/IR 1001001000000000 0
+run
+
+force -freeze sim:/pla/IR 1001001000100000 0
+run
+force -freeze sim:/pla/IR 1001001000010000 0
+run
+force -freeze sim:/pla/IR 1001001000110000 0
+run
+force -freeze sim:/pla/IR 1001001000111000 0
+run
+force -freeze sim:/pla/IR 1001001000001000 0
+run
