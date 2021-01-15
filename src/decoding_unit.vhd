@@ -103,6 +103,7 @@ end component;
 	signal F3_decoded : std_logic_vector(3 downto 0);
 	signal F4_decoded : std_logic_vector(3 downto 0);
 	signal F6_decoded : std_logic_vector(3 downto 0);
+	signal F10_decoded : std_logic_vector(7 downto 0);
 	
 	begin
 		--------------------------- control store -----------------------------
@@ -140,10 +141,13 @@ end component;
 		if PLA_out = '1' then 
 			temp := PLA_output;
 
-			if IR(15 downto 12) = "1010" and branch = '1' then
-				temp := temp;
-			else
-				temp := (others => '0');
+			if IR(15 downto 12) = "1010" then
+				if branch = '1' then
+					temp := temp;
+				else
+					temp := (others => '0');
+				end if;
+			else temp := temp;
 			end if;
 
 		else
@@ -158,10 +162,10 @@ end component;
 		temp(5 DOWNTO 4) := temp(5 DOWNTO 4) or ((OR_dst & OR_dst) and IR(5 DOWNTO 4));
 
 		-- OR indsrc
-		temp(1) := temp(1) or (OR_indsrc and IR(9));
+		temp(1) := temp(1) or (OR_indsrc and not IR(9));
 
 		-- OR indds
-		temp(1) := temp(1) or (OR_inddst and IR(3));
+		temp(1) := temp(1) or (OR_inddst and not IR(3));
 
 		-- OR result
 		temp(1) := temp(1) or (OR_result and (not IR(5)) and (not IR(4)) and (not IR(3)));
@@ -188,6 +192,15 @@ end component;
 	F3: decAxB generic map (2) port map('1', uIR(19 downto 18), F3_decoded);
 	F4: decAxB generic map (2) port map('1', uIR(17 downto 16), F4_decoded);
 	F6: decAxB generic map (2) port map('1', uIR(11 downto 10), F6_decoded);
+
+	F10: decAxB generic map (3) port map('1', uIR(6 downto 4), F10_decoded);
+	OR_dst <= F10_decoded(1);
+	OR_indsrc <= F10_decoded(2);
+	OR_inddst <= F10_decoded(3);
+	OR_result <= F10_decoded(4);
+	OR_ALU <= F10_decoded(5);
+	OR_sng_JSR <= F10_decoded(6);
+	OR_INT <= F10_decoded(7);
 	-----------------------------------Control Word -----------------------------
 	control_word(0) <= F1_decoded(1); 	--PC_out;
 	control_word(1) <= F1_decoded(2); 	--MDR_out;

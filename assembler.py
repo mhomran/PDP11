@@ -139,6 +139,9 @@ def AV_assemble(infilename, outfilename):
     exit(1)
 
   output = open(outfilename, 'w', encoding='utf-8')
+  print("// memory data file (do not edit the following line - required for mem load use)", file=output)
+  print("// instance=/system/RAM_inst/ram", file=output)
+  print("// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1", file=output)
 
   # read the code from the file
   code = file.read()

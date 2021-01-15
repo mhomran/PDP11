@@ -69,6 +69,17 @@ component ram is
 		dataout : OUT std_logic_vector(WORDSIZE-1 DOWNTO 0));
 end component;
 
+--Decoding unit
+component DCU IS
+	GENERIC (ADDRESS_SIZE : INTEGER := 9);
+	PORT(
+		FLAGS: IN std_logic_vector(15 DOWNTO 0);
+		IR : IN std_logic_vector(15 DOWNTO  0);
+		clk : in std_logic;
+		control_word: OUT std_logic_vector(34 DOWNTO 0)
+		);
+END component;
+
 --inputs of the tristates
 type R_out is array (REG_NUM-1 downto 0) of std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal R_output : R_out;
@@ -79,6 +90,7 @@ signal TEMP_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal SOURCE_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal DEST_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Y_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal Op2_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Z_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal FLAGS_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal ADDRESS_DEC_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
@@ -126,6 +138,7 @@ signal DEST_in : std_logic;
 signal DEST_out : std_logic;
 
 signal Y_in : std_logic;
+signal Clear_Y : std_logic;
 
 signal Z_in : std_logic;
 signal Z_out : std_logic;
@@ -158,6 +171,9 @@ signal SP_in : std_logic := '0';
 signal SP_in_or_output : std_logic;
 signal SP_out : std_logic := '0';
 signal SP_out_or_output : std_logic;
+
+--Control word
+signal control_word : std_logic_vector(34 DOWNTO 0);
 
 begin
   ----------------------------clock gating -----------------------------
@@ -208,7 +224,8 @@ begin
   ADDRESS_DEC_output(WORDSIZE-1 downto 8) <= (others => '0');
   bus_io <= ADDRESS_DEC_output when Address_out = '1' else (others => 'Z');
   ---------------------------ALU----------------------------------------
-  ALU_inst: alu generic map (WORDSIZE) port map(Y_output, bus_io, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
+  Op2_output <= Y_output when Clear_Y = '0' else (others => '0');
+  ALU_inst: alu generic map (WORDSIZE) port map(Op2_output, bus_io, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
   
   FLAGS: reg generic map (WORDSIZE) port map(clk, FLAGS_in, FLAGS_input, FLAGS_output);
   FLAGS_input <= bus_io when FLAGS_ch = '1' else ALU_FLAGS;
@@ -222,5 +239,43 @@ begin
   MDR: reg generic map (WORDSIZE) port map(clk, MDR_in, MDR_input, MDR_output);
   MDR_input <= RAM_output when RAM_Read = '1' else bus_io;
   bus_io <= MDR_output when MDR_out = '1' else (others => 'Z');
- 
+  -------------------------------Decoding unit---------------------------
+  DCU_inst: dcu port map(FLAGS_output, IR_output, clk, control_word);
+  -------------------------------Signal Assignment -----------------------
+  PC_out     <= control_word(0);
+  MDR_out    <= control_word(1);
+  Z_out      <= control_word(2);
+  Rsrc_out   <= control_word(3);
+  Rdst_out   <= control_word(4);
+  TEMP_out   <= control_word(5);
+  Address_out<= control_word(6);
+  SOURCE_out <= control_word(7);
+  DEST_out   <= control_word(8);
+  SP_out     <= control_word(9);
+  FLAGS_out  <= control_word(10);
+
+  PC_in      <= control_word(11);
+  IR_in      <= control_word(12);
+  Z_in       <= control_word(13);
+  Rsrc_in    <= control_word(14);
+  Rdst_in    <= control_word(15);
+  SP_in      <= control_word(16);
+  MAR_in     <= control_word(17);
+  MDR_in     <= control_word(18);
+  TEMP_in    <= control_word(19);
+  Y_in       <= control_word(20);
+  SOURCE_in  <= control_word(21);
+  DEST_in    <= control_word(22);
+
+  alu_selector <= control_word(26 downto 23);
+
+  RAM_Read   <= control_word(27);
+  RAM_Write  <= control_word(28);
+  Clear_Y    <= control_word(29);
+  Carry_in   <= control_word(30);
+  FLAGS_in   <= control_word(31);
+  HLT        <= control_word(32);
+  INT        <= control_word(33);
+  FLAGS_CH   <= control_word(34);
+
 end system_1;

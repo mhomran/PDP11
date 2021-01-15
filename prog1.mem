@@ -1,0 +1,9 @@
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/system/RAM_inst/ram
+// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1
+0: 0000010111000000
+1: 0000000000000101
+2: 0000010111000001
+3: 0000000000000010
+4: 0001000000000001
+5: 1011000000000000

@@ -1,0 +1,6 @@
+MOV #5, R0
+MOV #2, R1
+ADD R0, R1
+HLT
+
+
