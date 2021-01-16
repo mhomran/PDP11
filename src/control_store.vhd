@@ -9,7 +9,7 @@ ENTITY control_store IS
 	);
 	PORT(
 		address : IN  std_logic_vector(ADDRESS_SIZE-1 DOWNTO 0);
-		dataout : OUT std_logic_vector(WORDSIZE-1 DOWNTO 0)
+		dataout : OUT std_logic_vector(WORDSIZE-1 DOWNTO 0) := (others => '0')
 		);
 END ENTITY control_store;
 

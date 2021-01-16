@@ -18,4 +18,4 @@ add wave -position end  sim:/system/DCU_inst/uAR_output
 
 force -freeze sim:/system/clk_input 0 0, 1 {50 ps} -r 100
 
-run 7400ps
+run 8000ps
