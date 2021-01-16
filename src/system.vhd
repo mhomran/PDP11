@@ -91,6 +91,7 @@ signal SOURCE_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal DEST_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Y_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Op2_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
+signal Op1_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal Z_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal FLAGS_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
 signal ADDRESS_DEC_output : std_logic_vector(WORDSIZE-1 DOWNTO 0);
@@ -224,8 +225,10 @@ begin
   ADDRESS_DEC_output(WORDSIZE-1 downto 8) <= (others => '0');
   bus_io <= ADDRESS_DEC_output when Address_out = '1' else (others => 'Z');
   ---------------------------ALU----------------------------------------
-  Op2_output <= Y_output when Clear_Y = '0' else (others => '0');
-  ALU_inst: alu generic map (WORDSIZE) port map(Op2_output, bus_io, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
+  Op1_output <= Y_output when Clear_Y = '0' else bus_io;
+  Op2_output <= bus_io when Clear_Y = '0' else (others => '0');
+
+  ALU_inst: alu generic map (WORDSIZE) port map(Op1_output, Op2_output, alu_selector, Carry_in, FLAGS_output(0), Z_input, ALU_FLAGS);
   
   FLAGS: reg generic map (WORDSIZE) port map(clk, FLAGS_in, FLAGS_input, FLAGS_output);
   FLAGS_input <= bus_io when FLAGS_ch = '1' else ALU_FLAGS;
