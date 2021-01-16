@@ -164,21 +164,30 @@ end component;
 		-- OR indsrc
 		temp(1) := temp(1) or (OR_indsrc and not IR(9));
 
-		-- OR indds
+		-- OR inddst
 		temp(1) := temp(1) or (OR_inddst and not IR(3));
 
 		-- OR result
 		temp(1) := temp(1) or (OR_result and (not IR(5)) and (not IR(4)) and (not IR(3)));
 
 		-- OR ALU
-		temp(5) := temp(5) or (OR_ALU and IR(15));
-		temp(4) := temp(4) or (OR_ALU and IR(14));
-		temp(3) := temp(3) or (OR_ALU and IR(13));
-		temp(2) := temp(2) or (OR_ALU and IR(12));
+		if to_integer(unsigned(IR(15 DOWNTO 12))) = 9 then
+			---single operand
+			temp(5) := temp(5) or (OR_ALU and IR(9));
+			temp(4) := temp(4) or (OR_ALU and IR(8));
+			temp(3) := temp(3) or (OR_ALU and IR(7));
+			temp(2) := temp(2) or (OR_ALU and IR(6));
+		else
+			---double operand
+			temp(5) := temp(5) or (OR_ALU and IR(15));
+			temp(4) := temp(4) or (OR_ALU and IR(14));
+			temp(3) := temp(3) or (OR_ALU and IR(13));
+			temp(2) := temp(2) or (OR_ALU and IR(12));
+		end if;
 
 		--OR_sng_JSR
-		temp(5) := temp(5) or (OR_sng_JSR and and_reduce(IR(15 DOWNTO 12) xnor "1001"));
-		temp(6) := temp(6) or (OR_sng_JSR and and_reduce(IR(15 DOWNTO 10) xnor "110000"));
+		temp(6) := temp(6) or (OR_sng_JSR and and_reduce(IR(15 DOWNTO 12) xnor "1001"));
+		temp(7) := temp(7) or (OR_sng_JSR and and_reduce(IR(15 DOWNTO 10) xnor "110000"));
 
 		--OR_INT
 		--TODO

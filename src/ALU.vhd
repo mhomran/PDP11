@@ -37,6 +37,7 @@ begin
 
   Cin_temp <= FLAGS_Cin when S = "1100"
   else FLAGS_Cin when S = "1101"
+  else '1' when S = "0001"
   else Cin; 
   
   --generate the full adders

@@ -141,7 +141,7 @@ def AV_assemble(infilename, outfilename):
   output = open(outfilename, 'w', encoding='utf-8')
   print("// memory data file (do not edit the following line - required for mem load use)", file=output)
   print("// instance=/system/RAM_inst/ram", file=output)
-  print("// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1", file=output)
+  print("// format=mti addressradix=h dataradix=b version=1.0 wordsperline=1", file=output)
 
   # read the code from the file
   code = file.read()
@@ -173,7 +173,7 @@ def AV_assemble(infilename, outfilename):
       # if label save it and continue
       labelI = lines[i].find(':')
       if labelI != -1:
-        label = lines[i][:labelI]
+        label = lines[i][:labelI].lower()
         if label.upper() == 'INTERRUPT':
           interrupt = 1
           oldI = index
@@ -196,7 +196,7 @@ def AV_assemble(infilename, outfilename):
           index = oldI
           interrupt = 0
         #variable
-        variables[lines[i][1]] = (lines[i][2], index)
+        variables[lines[i][1].lower()] = (lines[i][2], index)
         index += 1
         continue
 
