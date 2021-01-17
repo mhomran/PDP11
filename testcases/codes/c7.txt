@@ -4,14 +4,17 @@ jsr loopa
 
 Inc R4
 Inc R4
-NOP
+
 CMP R4,R4
-BEq loopa
 
 Mov R0, R0
-Loopa:
-
 HLT
+Loopa:
+	Mov #20, R5
+	Mov #10, R1
+	CMP R1, R5
+	RTS
+
 
  DEFINE M 14
  DEFINE N 15

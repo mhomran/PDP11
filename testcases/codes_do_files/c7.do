@@ -4,6 +4,10 @@ mem load -i ../PDP11/testcases/assembled/c7.mem /system/RAM_inst/ram
 
 add wave -position 0  sim:/system/clk_input
 add wave -position 0 sim:/system/IR/q
+add wave -position end  sim:/system/R(1)/R_reg/q
+add wave -position end  sim:/system/R(4)/R_reg/q
+add wave -position end  sim:/system/R(5)/R_reg/q
+add wave -position end sim:/system/FLAGS/q
 
 add wave sim:/system/PC/q
 add wave sim:/system/SP/q
@@ -13,4 +17,4 @@ add wave -position end  sim:/system/DCU_inst/uAR_output
 
 force -freeze sim:/system/clk_input 0 0, 1 {50 ps} -r 100
 
-run 8800ps
+run 10800ps
