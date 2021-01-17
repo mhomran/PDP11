@@ -51,7 +51,8 @@ ARCHITECTURE PLAa OF PLA IS
 					uARTemp <= iret_base_address;
 				else uARTemp <= (others => '0');
 				end if;		
-
+					
+				
 		END PROCESS;
 		uAR <= uARTemp;
 END PLAa;

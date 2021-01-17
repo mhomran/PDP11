@@ -10,7 +10,8 @@ ENTITY DCU IS
 		FLAGS: IN std_logic_vector(15 DOWNTO 0);
 		IR : IN std_logic_vector(15 DOWNTO  0);
 		clk : in std_logic;
-		control_word: OUT std_logic_vector(34 DOWNTO 0)
+		control_word: OUT std_logic_vector(34 DOWNTO 0);
+		IRQ : IN std_logic
 		);
 		
 END ENTITY DCU;
@@ -136,6 +137,7 @@ end component;
 	process (PLA_output, uAR_input, uIR, IR, OR_dst, OR_indsrc, OR_inddst, 
 	OR_result, OR_ALU, OR_sng_JSR, OR_INT, PLA_out)
 		variable temp : std_logic_vector(8 DOWNTO 0);
+		constant isr_base_address : std_logic_vector(8 DOWNTO 0) := std_logic_vector(to_unsigned(8#650#, 9));
 	begin
 		
 		if PLA_out = '1' then 
@@ -190,7 +192,10 @@ end component;
 		temp(7) := temp(7) or (OR_sng_JSR and and_reduce(IR(15 DOWNTO 10) xnor "110000"));
 
 		--OR_INT
-		--TODO
+		if IRQ = '1' and OR_INT = '1' then 
+			temp := isr_base_address;
+		else temp := temp;
+		end if;
 
 		uAR_input <= temp;
 	end process;
@@ -210,6 +215,7 @@ end component;
 	OR_ALU <= F10_decoded(5);
 	OR_sng_JSR <= F10_decoded(6);
 	OR_INT <= F10_decoded(7);
+
 	-----------------------------------Control Word -----------------------------
 	control_word(0) <= F1_decoded(1); 	--PC_out;
 	control_word(1) <= F1_decoded(2); 	--MDR_out;

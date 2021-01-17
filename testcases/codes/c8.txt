@@ -1,0 +1,22 @@
+mov #50, R6 
+
+Loopa:
+Inc R4
+Inc R4
+NOP
+CMP R4,R4
+Bne loopa
+
+Mov R0, R0
+
+HLT
+
+Interrupt:
+	mov #300, R1 
+	CMP R2, R4
+	IRET
+ DEFINE M 14
+ DEFINE N 15
+ DEFINE X 20
+ DEFINE Y 25
+

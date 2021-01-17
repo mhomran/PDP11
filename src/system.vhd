@@ -76,6 +76,7 @@ component DCU IS
 		FLAGS: IN std_logic_vector(15 DOWNTO 0);
 		IR : IN std_logic_vector(15 DOWNTO  0);
 		clk : in std_logic;
+		IRQ : IN std_logic;
 		control_word: OUT std_logic_vector(34 DOWNTO 0)
 		);
 END component;
@@ -245,7 +246,7 @@ begin
   MDR_input <= RAM_output when RAM_Read = '1' else bus_io;
   bus_io <= MDR_output when MDR_out = '1' else (others => 'Z');
   -------------------------------Decoding unit---------------------------
-  DCU_inst: dcu port map(FLAGS_output, IR_output, clk, control_word);
+  DCU_inst: dcu port map(FLAGS_output, IR_output, clk, IRQ, control_word);
   -------------------------------Signal Assignment -----------------------
   PC_out     <= control_word(0);
   MDR_out    <= control_word(1);
