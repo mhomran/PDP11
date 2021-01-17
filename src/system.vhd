@@ -221,8 +221,10 @@ begin
   Z: reg generic map (WORDSIZE) port map(clk, Z_in, Z_input, Z_output);
   bus_io <= Z_output when Z_out = '1' else (others => 'Z');
 
-  ADDRESS_DEC_output(7 downto 0) <= IR_output(7 downto 0);
-  ADDRESS_DEC_output(WORDSIZE-1 downto 8) <= (others => '0');
+  ADDRESS_DEC_output(6 downto 0) <= IR_output(6 downto 0);
+  ADDRESS_DEC_output(WORDSIZE-1 downto 7) <= (others => '0') when IR_output(7) = '0'
+  else (others => '1');
+  
   bus_io <= ADDRESS_DEC_output when Address_out = '1' else (others => 'Z');
   ---------------------------ALU----------------------------------------
   Op1_output <= Y_output when Clear_Y = '0' else bus_io;
