@@ -101,7 +101,7 @@ def check(op, variables):
     code = 7
     indir = 0
     t = 3
-    value = op
+    value = op.lower()
 
   bstring = "{0:{fill}2b}".format(t, fill='0') + "{0:{fill}1b}".format(indir, fill='0') + "{0:{fill}3b}".format(code, fill='0')
   return (bstring, vbool, value)
@@ -305,7 +305,7 @@ def AV_assemble(infilename, outfilename):
             print("{0:{fill}16b}".format((int(line.valueD) + 2**16) % 2**16, fill='0'), file=output)
           elif line.vDst == 2:
             print(f"{hex(line.index+1)[2:]}: ", end='', file=output)
-            print("{0:{fill}16b}".format((int(variables[line.valueD][1])-line.index-1 + 2**16) % 2**16, fill='0'), file=output)
+            print("{0:{fill}16b}".format((int(variables[line.valueD][1])-line.index-2 + 2**16) % 2**16, fill='0'), file=output)
             continue
         else:
           line.mneum = '10100' + line.mneum
@@ -320,11 +320,11 @@ def AV_assemble(infilename, outfilename):
         if line.vSrc == 1:
           one = int(line.valueS)
         elif line.vSrc == 2:
-          one = int(variables[line.valueS][1]) - line.index - 1
+          one = int(variables[line.valueS][1]) - line.index - 2
         if line.vDst == 1:
           two = int(line.valueD)
         elif line.vDst == 2:
-          two = int(variables[line.valueD][1]) - line.index - 1
+          two = int(variables[line.valueD][1]) - line.index - 2
           if one is not None:
             two -= 1
       
