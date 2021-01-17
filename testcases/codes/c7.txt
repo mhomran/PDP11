@@ -1,0 +1,20 @@
+mov #50, R6 
+
+jsr loopa
+
+Inc R4
+Inc R4
+NOP
+CMP R4,R4
+BEq loopa
+
+Mov R0, R0
+Loopa:
+
+HLT
+
+ DEFINE M 14
+ DEFINE N 15
+ DEFINE X 20
+ DEFINE Y 25
+
