@@ -1,23 +1,30 @@
-## About 
+# About 
 
-This project is about an implementation for PDP-11 minicomputer instruction set architecture (ISA) and its CPU KA-11 in VHDL. 
+This project is about an implementation for PDP-11 minicomputer instruction set architecture (ISA) and its CPU KA-11 in VHDL.
+Microprogramming approach is used for the implementation of the control unit.
 
-### CPU specs 
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://github.com/mhomran/PDP11/raw/master/demo/Block_Diagram.png" alt="block diagram Visualization"></a>
+</p>
+
+#### CPU specs 
 
 - data and address bus of 16-bit width.
-- 12 clock per instruction (CPI).
+- 12 clock cycles per instruction (CPI).
 - can handle one interrupt request.
-- Register file og 8 general purpose registers including 2 special registers (SP, PC).
+- Register file of 8 general purpose registers including 2 special registers (SP, PC).
 
-### RAM specs
+#### RAM specs
 
 - 4 KB RAM.
 - Word addressable.
 
-### assembler features.
-- not case sensetive.
+#### Bus system
 
-### List of the implemented instructions
+- single bus architecture
+
+# List of the implemented instructions
 
 ## two operands instructions
 
@@ -70,14 +77,35 @@ This project is about an implementation for PDP-11 minicomputer instruction set 
 | IRET                  | `IRET`                     | return to main program before interruption            |
 
 
+# Addressing modes
+
+|         Name          |          syntax            |            Operation            |
+| --------------------- | -------------------------- | ------------------------------- |
+| Register              | `Rn`                       | Operand = [Rn]                  |
+| Auto-Increment        | `(Rn)+`                    | Operand = Mem[Rn] <br> Rn = Rn + 1   |
+| Auto-Decrement        | `-(Rn)`                    |  Rn = Rn - 1 <br> Operand = Mem[Rn]  |
+| index                 | `X(Rn)`                    | Operand = Mem [X + [Rn]] |
+| Register indirect     | `@(Rn)`                    | Operand = Mem[Rn] |
+| Auto-Increment indirect | `@(Rn)+`                 | Operand = Mem[Mem[Rn]] <br> Rn = Rn + 1|
+| Auto-Decrement indirect | `@-(Rn)`                 | Rn = Rn - 1 <br> Operand = Mem[Mem[Rn]]|
+| Index indirect        | `@X(Rn)`                   | Operand = Mem[Mem [X + [Rn]]]     |
+
+## Derived addressing modes
+|         Name          |          syntax            |            Operation            |
+| --------------------- | -------------------------- | ------------------------------- |
+| Immediate             | `#n`                       | Operand = Mem[PC] = n <br> Inc PC <br> (operand n follows instruction) |
+| Relative              | `VAR`                      | Fetch X<br>Inc PC<br>Operand=Mem[X+[PC]=A] <br>(Addr A is given relative to instruction) |
+
+
 # Programmer guide
 - To write a comment use `;`
 - The variables should be written in the end of the assembly file. It also should be in this format `DEFINE VAR 5`.
 - The interrupt subroutine should be written before the variables and has this label `Interrupt:`.
 - Labels must be written in a separate line.
-- To assemble the project `python assembler.py <assembly_file> <output_file>`. You should have python3.
+- There's no case sensitivity.
+- To assemble the project, run `python assembler.py <assembly_file> <output_file>`. You should have python3.
 
-# to run the test cases
+# To run the test cases
 - Install ModelSim (there's a free edition for students)
 - Create a project, then add the vhdl files in it
 - In the tcl console, write `do do_file` where `do_file` is the file that contains the simulation instructions for ModelSim. 
