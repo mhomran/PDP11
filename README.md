@@ -75,6 +75,7 @@ This project is about an implementation for PDP-11 minicomputer instruction set 
 - The variables should be written in the end of the assembly file. It also should be in this format `DEFINE VAR 5`.
 - The interrupt subroutine should be written before the variables and has this label `Interrupt:`.
 - Labels must be written in a separate line.
+- To assemble the project `python <assembly_file> <output_file>`. You should have python3.
 
 # to run the test cases
 - Install ModelSim (there's a free edition for students)
