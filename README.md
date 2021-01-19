@@ -11,7 +11,7 @@ Microprogramming approach is used for the implementation of the control unit.
 #### CPU specs 
 
 - data and address bus of 16-bit width.
-- 12 clock per instruction (CPI).
+- 12 clock cycles per instruction (CPI).
 - can handle one interrupt request.
 - Register file of 8 general purpose registers including 2 special registers (SP, PC).
 
