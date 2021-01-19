@@ -2,6 +2,11 @@
 
 This project is about an implementation for PDP-11 minicomputer instruction set architecture (ISA) and its CPU KA-11 in VHDL. 
 
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://github.com/mhomran/PDP11/raw/master/demo/Block_Diagram.png" alt="block diagram Visualization"></a>
+</p>
+
 ### CPU specs 
 
 - data and address bus of 16-bit width.
@@ -13,9 +18,6 @@ This project is about an implementation for PDP-11 minicomputer instruction set 
 
 - 4 KB RAM.
 - Word addressable.
-
-### assembler features.
-- not case sensetive.
 
 ### List of the implemented instructions
 
@@ -75,7 +77,8 @@ This project is about an implementation for PDP-11 minicomputer instruction set 
 - The variables should be written in the end of the assembly file. It also should be in this format `DEFINE VAR 5`.
 - The interrupt subroutine should be written before the variables and has this label `Interrupt:`.
 - Labels must be written in a separate line.
-- To assemble the project `python assembler.py <assembly_file> <output_file>`. You should have python3.
+- There's no case sensitivity.
+- To assemble the project, run `python assembler.py <assembly_file> <output_file>`. You should have python3.
 
 # to run the test cases
 - Install ModelSim (there's a free edition for students)
