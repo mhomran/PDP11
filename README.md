@@ -36,7 +36,7 @@ Microprogramming approach is used for the implementation of the control unit.
 | SUB                   | `SUB Op1, Op2`             | Op2 <- Op1 - Op2                  |
 | SBC                   | `SBC Op1, Op2`             | Op2 <- Op1 - Op2 - carry flag     |
 | AND                   | `AND Op1, Op2`             | Op2 <- Op1 & Op2 (bitwise and)    |
-| OR                    | `OR Op1, Op2`              | Op2 <- Op1 | Op2 (bitwise or)     |
+| OR                    | `OR Op1, Op2`              | Op2 <- Op1 \| Op2 (bitwise or)     |
 | XOR                   | `XOR Op1, Op2`             | Op2 <- Op1 ^ Op2 (bitwise xor)    |
 | CMP                   | `CMP Op1, Op2`             | Op1 - Op2 (just flags change)     |
 
@@ -48,7 +48,7 @@ Microprogramming approach is used for the implementation of the control unit.
 | DEC                   | `DEC Op`                   | Op <- Op - 1                      |
 | CLR                   | `CLR Op`                   | Op <- 0                           |
 | INV                   | `INV Op`                   | Op <- ~OP (bitwise inversion)     |
-| LSR                   | `LSR Op1`                  | Op <- Op >> 1                     |
+| LSR                   | `LSR Op`                   | Op <- Op >> 1                     |
 | ROR                   | `ROR Op`                   | Op <- Op(0) concat. Op(15:1)      |
 | ASR                   | `ASR Op`                   | Op <- Op(15) concat. Op (15:1)    |
 | LSL                   | `LSL Op`                   | Op <- Op << 1                     |
