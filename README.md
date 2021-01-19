@@ -47,4 +47,27 @@ This project is about an implementation for PDP-11 minicomputer instruction set 
 | LSL                   | LSL Op                   | Op <- Op << 1                     |
 | ROL                   | ROL Op                   | Op <- Op(14:0) concat. Op(15)     |
 
+## Branch instructions
+
+| Instruction mnemonic  |          syntax          |         Branch condition(s)       |
+| --------------------- | ------------------------ | --------------------------------- |
+| BR                    | BR label                 | None                              |
+| BEQ                   | BEQ label                | Z = 1                             |
+| BNE                   | BNE label                | Z = 0                             |
+| BLO                   | BLO label                | C = 0                             |
+| BLS                   | BLS label                | C = 0 or Z = 1                    |
+| BHI                   | BHI label                | C = 1                             |
+| BHS                   | BHS label                | C = 1 or Z = 1                    |
+
+## No operand instructions
+
+| Instruction mnemonic  |          syntax          |            Description            |
+| --------------------- | ------------------------ | --------------------------------- |
+| HLT                   | HLT                      | stops the cpu                     |
+| NOP                   | NOP                      | do nothing                        |
+| JSR                   | JSR label                | far jump to a subroutune          |
+| RTS                   | RTS                      | return to a subroutune            |
+| IRET                  | IRET                     | return to main program before interruption            |
+
+
 
