@@ -65,6 +65,8 @@ Microprogramming approach is used for the implementation of the control unit.
 | BLS                   | `BLS label`                | C = 0 or Z = 1                    |
 | BHI                   | `BHI label`                | C = 1                             |
 | BHS                   | `BHS label`                | C = 1 or Z = 1                    |
+| JSR                   | `JSR label`                | far jump to a subroutune          |
+
 
 ## No operand instructions
 
@@ -72,7 +74,6 @@ Microprogramming approach is used for the implementation of the control unit.
 | --------------------- | -------------------------- | --------------------------------- |
 | HLT                   | `HLT`                      | stops the cpu                     |
 | NOP                   | `NOP`                      | do nothing                        |
-| JSR                   | `JSR label`                | far jump to a subroutune          |
 | RTS                   | `RTS`                      | return to a subroutune            |
 | IRET                  | `IRET`                     | return to main program before interruption            |
 
