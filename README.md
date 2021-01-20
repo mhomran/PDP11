@@ -53,6 +53,8 @@ Microprogramming approach is used for the implementation of the control unit.
 | ASR                   | `ASR Op`                   | Op <- Op(15) concat. Op (15:1)    |
 | LSL                   | `LSL Op`                   | Op <- Op << 1                     |
 | ROL                   | `ROL Op`                   | Op <- Op(14:0) concat. Op(15)     |
+| JSR                   | `JSR Op` Or `JSR label`    | far jump to a subroutune          |
+
 
 ## Branch instructions
 
@@ -65,7 +67,6 @@ Microprogramming approach is used for the implementation of the control unit.
 | BLS                   | `BLS label`                | C = 0 or Z = 1                    |
 | BHI                   | `BHI label`                | C = 1                             |
 | BHS                   | `BHS label`                | C = 1 or Z = 1                    |
-| JSR                   | `JSR label`                | far jump to a subroutune          |
 
 
 ## No operand instructions
@@ -74,12 +75,13 @@ Microprogramming approach is used for the implementation of the control unit.
 | --------------------- | -------------------------- | --------------------------------- |
 | HLT                   | `HLT`                      | stops the cpu                     |
 | NOP                   | `NOP`                      | do nothing                        |
-| RTS                   | `RTS`                      | return to a subroutune            |
+| RTS                   | `RTS`                      | return from a subroutune            |
 | IRET                  | `IRET`                     | return to main program before interruption            |
 
 
 # Addressing modes
 
+## main Addressing modes
 |         Name          |          syntax            |            Operation            |
 | --------------------- | -------------------------- | ------------------------------- |
 | Register              | `Rn`                       | Operand = [Rn]                  |
